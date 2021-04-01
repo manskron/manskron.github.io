@@ -8,6 +8,13 @@
 <style>
     .gifs {
         display: flex;
+        flex-wrap: wrap;
+        max-width: 100%;
+
+    }
+
+    .gifs>img{
+       margin: 1rem;
     }
 
     nav {
@@ -24,6 +31,12 @@
     .menu-item {
         margin-right: 1rem;
     }
+
+    .heading {
+        color: red;
+        font-family: sans-serif;
+        font-style: italic;
+    }
 </style>
 <body>
 
@@ -34,8 +47,7 @@
 </nav>
 
 <main>
-    <h1>Gifs</h1>
-    <p>Look at all these gifs:</p>
+    <h1 class="heading">Cool GIF alert</h1>
     <div class="gifs">
         <img src="/assets/gifs/cd.gif" alt="cyberdemon"/>
         <img src="/assets/gifs/torch.gif" alt="torch"/>
