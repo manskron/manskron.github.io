@@ -1,0 +1,35 @@
+nav {
+    background-color: palegoldenrod;
+}
+
+.menu {
+    display: flex;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.menu-item {
+    margin-right: 1rem;
+}
+
+.menu-disclaimer {
+    display: block;
+    color: rgba(0, 0, 0, 0.7);
+    margin-top: -0.7rem;
+    text-transform: uppercase;
+}
+
+.gifs {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+
+}
+
+.gifs>img{
+    margin: 1rem;
+}
+
+.text-block {
+    max-width: 450px;
+}
