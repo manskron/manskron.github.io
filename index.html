@@ -2,8 +2,36 @@
 
 <style>
     body {
-        background-color: #eeeeee;
-        color: #202020;
+        --text-color: #222;
+        --bkg-color: #eee;
+    }
+
+    body.dark-theme {
+        --text-color: #eee;
+        --bkg-color: #121212;
+    }
+
+    @media (prefers-color-scheme: dark) {
+
+        /* defaults to dark theme */
+        body {
+            --text-color: #eee;
+            --bkg-color: #121212;
+        }
+
+        body.light-theme {
+            --text-color: #222;
+            --bkg-color: #eee;
+        }
+    }
+
+    /* * {
+        font-family: Arial, Helvetica, sans-serif;
+    } */
+
+    body {
+        background: var(--bkg-color);
+        color: var(--text-color);
     }
 
     #timeout {
@@ -15,6 +43,7 @@
     <script src="mans.js" defer type="module"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
     <title>mans.computer</title>
 </head>
 
