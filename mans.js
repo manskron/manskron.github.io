@@ -1,12 +1,29 @@
 // @ts-check
 
-const SIZE = 300;
+
+const BOARD_COLS = 100;
+const BOARD_ROWS = BOARD_COLS;
+const GAME_WIDTH = 800;
+const GAME_HEIGHT = 800;
+const CELL_WIDTH = GAME_WIDTH / BOARD_COLS;
+const CELL_HEIGHT = GAME_HEIGHT / BOARD_ROWS;
+let canvas, timeoutEl;
+let run = true;
+
+// const colors = ["red", "white", "blue", "yello", 'green']
+
+
+// function setRandomFillStyle(ctx) {
+//     let color = colors[Math.floor(Math.random() * colors.length)]
+//     ctx.fillStyle = color;
+// }
+
 
 function buildInitialBoard() {
     let initialBoard = [];
-    for (let r = 0; r < SIZE; r++) {
+    for (let r = 0; r < BOARD_COLS; r++) {
         let rowArr = [];
-        for (let c = 0; c < SIZE; c++) {
+        for (let c = 0; c < BOARD_ROWS; c++) {
             rowArr.push(Math.floor(Math.random() * 2));
         }
         initialBoard.push(rowArr);
@@ -15,20 +32,32 @@ function buildInitialBoard() {
     return initialBoard;
 }
 
+// function writeBoardToDOM(board) {
+//     if (gameEl) {
+//         gameEl.innerHTML = ''
+//         board.forEach(row => {
+//             let rowEl = document.createElement("div");
+//             rowEl.append(row.map(el => el === 0 ? " " : "■").join(" "))
+//             gameEl.append(rowEl)
+//         })
+//     }
+// }
 
-const gameEl = document.getElementById("game");
+function updateCanvas(board) {
+    const ctx = canvas.getContext("2d");
 
-const symbols = ["◉", "■"]
-
-function writeBoardToDOM(board) {
-    if (gameEl) {
-        gameEl.innerHTML = ''
-        board.forEach(row => {
-            let rowEl = document.createElement("div");
-            rowEl.append(row.map(el => el === 0 ? " " : "■").join(" "))
-            gameEl.append(rowEl)
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+    ctx.fillStyle = "black";
+    board.forEach((row, rowIndex) => {
+        row.forEach((col, colIndex) => {
+            if (getCellState(rowIndex, colIndex) === 1) {
+                let x = colIndex * CELL_WIDTH;
+                let y = rowIndex * CELL_HEIGHT;
+                ctx.fillRect(x, y, CELL_WIDTH, CELL_HEIGHT);
+            }
         })
-    }
+    })
 }
 
 function getCellState(rowIndex, colIndex) {
@@ -92,14 +121,36 @@ function getNextBoard() {
 }
 
 function draw() {
-    writeBoardToDOM(board)
-    getNextBoard()
-    window.requestAnimationFrame(draw)
+    const time = timeoutEl ? timeoutEl.valueAsNumber : 0
+    if (run) {
+        updateCanvas(board)
+        getNextBoard()
+    }
+
+    setTimeout(() => {
+        window.requestAnimationFrame(draw)
+    }, time)
 }
+
 
 
 let board = buildInitialBoard()
 
+function init() {
+
+    canvas = document.getElementById("canvas");
+    timeoutEl = document.getElementById("timeout")
+    canvas?.addEventListener("click", () => {
+        run = !run;
+    })
+    canvas.width = GAME_WIDTH;
+    canvas.height = GAME_HEIGHT;
+    if (!canvas || !timeoutEl) {
+        throw Error("Some DOM element(s) not found.")
+    }
+}
+
 window.addEventListener("DOMContentLoaded", function () {
+    init()
     draw()
 })

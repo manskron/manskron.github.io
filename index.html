@@ -5,8 +5,8 @@
         color: darkslategray
     }
 
-    #game {
-        font-size: 4px;
+    #timeout {
+        transform: rotateY(180deg);
     }
 </style>
 
@@ -22,10 +22,10 @@
         <h1 id="title">hello</h1>
         <a href="https://mans.computer/modmacs">modmacs</a>
     </header>
-    <nav>
-        <ul>
-            <li>[links]</li>
-        </ul>
-    </nav>
-    <code id="game"></div>
+    <div>
+        <canvas id="canvas"></canvas>
+        <div>
+            <input type="range" min="0" max="500" value="150" id="timeout">Speed</input>
+        </div>
+    </div>
 </body>
