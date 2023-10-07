@@ -29,14 +29,22 @@ function setupCellCountInput() {
     const cellCountEl = document.getElementById("cellCount");
     if (inputEl && cellCountEl) {
 
-        inputEl.addEventListener("change", (e) => {
-            run = false;
+        function updateCellCount() {
             BOARD_COLS = inputEl.valueAsNumber;
             BOARD_ROWS = inputEl.valueAsNumber;
             CELL_WIDTH = GAME_WIDTH / BOARD_COLS;
             CELL_HEIGHT = GAME_HEIGHT / BOARD_ROWS;
             board = createRandomizedBoard();
-            run = true;
+        }
+
+        inputEl.addEventListener("change", (e) => {
+            if (!run) {
+                updateCellCount()
+            } else {
+                run = false;
+                updateCellCount()
+                run = true;
+            }
         })
 
         inputEl.addEventListener("input", (e) => {
@@ -74,9 +82,13 @@ function setupPauseButton() {
 
 function setupRestartButton() {
     const btn = document.getElementById('restart')
+    const pauseBtn = document.getElementById('pause')
     btn?.addEventListener("click", () => {
         run = false;
         board = createRandomizedBoard();
+        if (pauseBtn) {
+            pauseBtn.innerHTML = "Pause"
+        }
         run = true;
     })
 }
