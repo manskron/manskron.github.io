@@ -1,11 +1,13 @@
 // @ts-check
 
-const BOARD_COLS = 100;
-const BOARD_ROWS = BOARD_COLS;
-const GAME_WIDTH = 800;
-const GAME_HEIGHT = 800;
-const CELL_WIDTH = GAME_WIDTH / BOARD_COLS;
-const CELL_HEIGHT = GAME_HEIGHT / BOARD_ROWS;
+let GAME_WIDTH = window.innerHeight / 2;
+let GAME_HEIGHT = GAME_WIDTH;
+
+let BOARD_COLS = 100;
+let BOARD_ROWS = BOARD_COLS;
+let CELL_WIDTH = GAME_WIDTH / BOARD_COLS;
+let CELL_HEIGHT = GAME_HEIGHT / BOARD_ROWS;
+
 let canvas, timeoutEl, board;
 let run = true;
 let BG_COLOR = "#eeeeee";
@@ -21,6 +23,28 @@ function setCanvasColors() {
         FILL_COLOR = fill
     }
 }
+
+function setupCellCountInput() {
+    const inputEl = document.getElementById("cellCountInput");
+    const cellCountEl = document.getElementById("cellCount");
+    if (inputEl && cellCountEl) {
+
+        inputEl.addEventListener("change", (e) => {
+            run = false;
+            BOARD_COLS = inputEl.valueAsNumber;
+            BOARD_ROWS = inputEl.valueAsNumber;
+            CELL_WIDTH = GAME_WIDTH / BOARD_COLS;
+            CELL_HEIGHT = GAME_HEIGHT / BOARD_ROWS;
+            board = createRandomizedBoard();
+            run = true;
+        })
+
+        inputEl.addEventListener("input", (e) => {
+            cellCountEl.innerHTML = inputEl.value;
+        })
+    }
+}
+
 
 function setupThemeButton() {
     const btn = document.getElementById("themeToggler");
@@ -61,20 +85,6 @@ function setupCanvas() {
     canvas = document.getElementById("canvas");
     canvas.width = GAME_WIDTH;
     canvas.height = GAME_HEIGHT;
-}
-
-function init() {
-    board = createRandomizedBoard()
-    setupCanvas();
-    setupThemeButton();
-    setupPauseButton();
-    setupRestartButton();
-    setCanvasColors()
-
-    timeoutEl = document.getElementById("timeout")
-    if (!canvas || !timeoutEl) {
-        throw Error("Some DOM element(s) not found.")
-    }
 }
 
 function createRandomizedBoard() {
@@ -177,6 +187,21 @@ function draw() {
     setTimeout(() => {
         window.requestAnimationFrame(draw)
     }, time)
+}
+
+function init() {
+    board = createRandomizedBoard()
+    setupCanvas();
+    setupCellCountInput();
+    setupThemeButton();
+    setupPauseButton();
+    setupRestartButton();
+    setCanvasColors()
+
+    timeoutEl = document.getElementById("timeout")
+    if (!canvas || !timeoutEl) {
+        throw Error("Some DOM element(s) not found.")
+    }
 }
 
 window.addEventListener("DOMContentLoaded", function () {
