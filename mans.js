@@ -1,6 +1,5 @@
 // @ts-check
 
-
 const BOARD_COLS = 100;
 const BOARD_ROWS = BOARD_COLS;
 const GAME_WIDTH = 800;
@@ -9,7 +8,9 @@ const CELL_WIDTH = GAME_WIDTH / BOARD_COLS;
 const CELL_HEIGHT = GAME_HEIGHT / BOARD_ROWS;
 let canvas, timeoutEl;
 let run = true;
-
+let BG_COLOR = "#eeeeee";
+let FILL_COLOR = "#202020";
+//
 // const colors = ["red", "white", "blue", "yello", 'green']
 
 
@@ -46,9 +47,9 @@ function buildInitialBoard() {
 function updateCanvas(board) {
     const ctx = canvas.getContext("2d");
 
-    ctx.fillStyle = "white";
+    ctx.fillStyle = BG_COLOR;
     ctx.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
-    ctx.fillStyle = "black";
+    ctx.fillStyle = FILL_COLOR;
     board.forEach((row, rowIndex) => {
         row.forEach((col, colIndex) => {
             if (getCellState(rowIndex, colIndex) === 1) {
@@ -136,6 +137,15 @@ function draw() {
 
 let board = buildInitialBoard()
 
+function setColors() {
+
+    let bodyStyles = window.getComputedStyle(document.querySelector("body"))
+    let bg = bodyStyles.getPropertyValue('background-color')
+    let fill = bodyStyles.getPropertyValue('color')
+    BG_COLOR = bg;
+    FILL_COLOR = fill
+}
+
 function init() {
 
     canvas = document.getElementById("canvas");
@@ -148,6 +158,8 @@ function init() {
     if (!canvas || !timeoutEl) {
         throw Error("Some DOM element(s) not found.")
     }
+
+    setColors()
 }
 
 window.addEventListener("DOMContentLoaded", function () {
