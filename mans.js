@@ -6,43 +6,89 @@ const GAME_WIDTH = 800;
 const GAME_HEIGHT = 800;
 const CELL_WIDTH = GAME_WIDTH / BOARD_COLS;
 const CELL_HEIGHT = GAME_HEIGHT / BOARD_ROWS;
-let canvas, timeoutEl;
+let canvas, timeoutEl, board;
 let run = true;
 let BG_COLOR = "#eeeeee";
 let FILL_COLOR = "#202020";
-//
-// const colors = ["red", "white", "blue", "yello", 'green']
 
+function setCanvasColors() {
+    let bodyEl = document.querySelector("body")
+    if (bodyEl) {
+        let bodyStyles = window.getComputedStyle(bodyEl)
+        let bg = bodyStyles.getPropertyValue('background-color')
+        let fill = bodyStyles.getPropertyValue('color')
+        BG_COLOR = bg;
+        FILL_COLOR = fill
+    }
+}
 
-// function setRandomFillStyle(ctx) {
-//     let color = colors[Math.floor(Math.random() * colors.length)]
-//     ctx.fillStyle = color;
-// }
+function setupThemeButton() {
+    const btn = document.getElementById("themeToggler");
+    if (btn) {
+        btn.addEventListener("click", function () {
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.body.classList.toggle("light-theme");
+            } else {
+                document.body.classList.toggle("dark-theme");
+            }
+            setCanvasColors()
+        });
+    }
+}
 
+function setupPauseButton() {
+    const btn = document.getElementById('pause')
+    btn?.addEventListener("click", () => {
+        run = !run;
+        if (run) {
+            btn.innerHTML = "Pause"
+        } else {
+            btn.innerHTML = "Run"
+        }
+    })
+}
 
-function buildInitialBoard() {
-    let initialBoard = [];
+function setupRestartButton() {
+    const btn = document.getElementById('restart')
+    btn?.addEventListener("click", () => {
+        run = false;
+        board = createRandomizedBoard();
+        run = true;
+    })
+}
+
+function setupCanvas() {
+    canvas = document.getElementById("canvas");
+    canvas.width = GAME_WIDTH;
+    canvas.height = GAME_HEIGHT;
+}
+
+function init() {
+    board = createRandomizedBoard()
+    setupCanvas();
+    setupThemeButton();
+    setupPauseButton();
+    setupRestartButton();
+    setCanvasColors()
+
+    timeoutEl = document.getElementById("timeout")
+    if (!canvas || !timeoutEl) {
+        throw Error("Some DOM element(s) not found.")
+    }
+}
+
+function createRandomizedBoard() {
+    let board = [];
     for (let r = 0; r < BOARD_COLS; r++) {
         let rowArr = [];
         for (let c = 0; c < BOARD_ROWS; c++) {
             rowArr.push(Math.floor(Math.random() * 2));
         }
-        initialBoard.push(rowArr);
+        board.push(rowArr);
     }
 
-    return initialBoard;
+    return board;
 }
-
-// function writeBoardToDOM(board) {
-//     if (gameEl) {
-//         gameEl.innerHTML = ''
-//         board.forEach(row => {
-//             let rowEl = document.createElement("div");
-//             rowEl.append(row.map(el => el === 0 ? " " : "■").join(" "))
-//             gameEl.append(rowEl)
-//         })
-//     }
-// }
 
 function updateCanvas(board) {
     const ctx = canvas.getContext("2d");
@@ -131,35 +177,6 @@ function draw() {
     setTimeout(() => {
         window.requestAnimationFrame(draw)
     }, time)
-}
-
-
-
-let board = buildInitialBoard()
-
-function setColors() {
-
-    let bodyStyles = window.getComputedStyle(document.querySelector("body"))
-    let bg = bodyStyles.getPropertyValue('background-color')
-    let fill = bodyStyles.getPropertyValue('color')
-    BG_COLOR = bg;
-    FILL_COLOR = fill
-}
-
-function init() {
-
-    canvas = document.getElementById("canvas");
-    timeoutEl = document.getElementById("timeout")
-    canvas?.addEventListener("click", () => {
-        run = !run;
-    })
-    canvas.width = GAME_WIDTH;
-    canvas.height = GAME_HEIGHT;
-    if (!canvas || !timeoutEl) {
-        throw Error("Some DOM element(s) not found.")
-    }
-
-    setColors()
 }
 
 window.addEventListener("DOMContentLoaded", function () {
