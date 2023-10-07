@@ -1,6 +1,6 @@
 // @ts-check
 
-let GAME_WIDTH = window.innerHeight / 2;
+let GAME_WIDTH = Math.min(window.innerHeight / 2, window.innerWidth);
 let GAME_HEIGHT = GAME_WIDTH;
 
 let BOARD_COLS = 100;
