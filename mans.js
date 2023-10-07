@@ -12,6 +12,7 @@ let canvas, timeoutEl, board;
 let run = true;
 let BG_COLOR = "#eeeeee";
 let FILL_COLOR = "#202020";
+let SHAPE = "rect"
 
 function setCanvasColors() {
     let bodyEl = document.querySelector("body")
@@ -27,6 +28,7 @@ function setCanvasColors() {
 function setupCellCountInput() {
     const inputEl = document.getElementById("cellCountInput");
     const cellCountEl = document.getElementById("cellCount");
+    cellCountEl.innerHTML = inputEl.value * inputEl.value;
     if (inputEl && cellCountEl) {
 
         function updateCellCount() {
@@ -34,6 +36,7 @@ function setupCellCountInput() {
             BOARD_ROWS = inputEl.valueAsNumber;
             CELL_WIDTH = GAME_WIDTH / BOARD_COLS;
             CELL_HEIGHT = GAME_HEIGHT / BOARD_ROWS;
+            cellCountEl.innerHTML = BOARD_COLS * BOARD_ROWS
             randomizeBoard();
         }
 
@@ -49,7 +52,7 @@ function setupCellCountInput() {
         })
 
         inputEl.addEventListener("input", (e) => {
-            cellCountEl.innerHTML = inputEl.value;
+            cellCountEl.innerHTML = inputEl.value * inputEl.value;
         })
     }
 }
@@ -96,8 +99,10 @@ function setupRestartButton() {
 
 function setupCanvas() {
     canvas = document.getElementById("canvas");
-    canvas.width = GAME_WIDTH;
-    canvas.height = GAME_HEIGHT;
+    if (canvas) {
+        canvas.width = GAME_WIDTH;
+        canvas.height = GAME_HEIGHT;
+    }
 }
 
 function randomizeBoard() {
@@ -119,12 +124,21 @@ function updateCanvas(board) {
     ctx.fillStyle = BG_COLOR;
     ctx.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
     ctx.fillStyle = FILL_COLOR;
+    ctx.strokeStyle = FILL_COLOR;
     board.forEach((row, rowIndex) => {
         row.forEach((col, colIndex) => {
             if (getCellState(rowIndex, colIndex) === 1) {
                 let x = colIndex * CELL_WIDTH;
                 let y = rowIndex * CELL_HEIGHT;
-                ctx.fillRect(x, y, CELL_WIDTH, CELL_HEIGHT);
+                switch (SHAPE) {
+                    case "arc":
+                        ctx.beginPath();
+                        ctx.arc(x, y, CELL_WIDTH / 2, 0, 2 * Math.PI);
+                        ctx.stroke();
+                        break;
+                    default:
+                        ctx.fillRect(x, y, CELL_WIDTH, CELL_HEIGHT);
+                }
             }
         })
     })
@@ -191,6 +205,10 @@ function getNextBoard() {
 
 function draw() {
     const time = timeoutEl ? timeoutEl.valueAsNumber : 0
+    const shapeEl = document.querySelector('input[name="shape"]:checked')
+    if (shapeEl) {
+        SHAPE = shapeEl.value;
+    }
     if (run) {
         updateCanvas(board)
         getNextBoard()
