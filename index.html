@@ -57,31 +57,34 @@
         <canvas id="canvas"></canvas>
         <div>
             <fieldset>
-                <legend>State</legend>
-                <button id="pause">Pause</button>
-                <button id="restart">Regenerate</button>
-            </fieldset>
-            <br>
-            <fieldset>
-                <legend>Tune</legend>
-                <input type="range" min="0" max="500" value="50" id="timeout">Speed</input>
-                <input type="range" min="10" max="400" value="100" id="cellCountInput">Cell count: <span
-                    id="cellCount">100</span></input>
+
+                <legend>Game of life</legend>
+                <fieldset>
+                    <legend>State</legend>
+                    <button id="pause">Pause</button>
+                    <button id="restart">Regenerate</button>
+                </fieldset>
+                <fieldset>
+                    <legend>Tune</legend>
+                    <input type="range" min="0" max="500" value="50" id="timeout">Speed</input>
+                    <input type="range" min="10" max="400" value="100" id="cellCountInput">Cell count: <span
+                        id="cellCount">100</span></input>
+
+                </fieldset>
+                <fieldset>
+                    <legend>Cell shape</legend>
+
+                    <div>
+                        <input type="radio" id="shape-rect" name="shape" value="rect" checked />
+                        <label for="shape-rect">Squares</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="shape-arc" name="shape" value="arc" />
+                        <label for="shape-arc">Circles</label>
+                    </div>
+                </fieldset>
 
             </fieldset>
-            <fieldset>
-                <legend>Cell shape</legend>
-
-                <div>
-                    <input type="radio" id="shape-rect" name="shape" value="rect" checked />
-                    <label for="shape-rect">Squares</label>
-                </div>
-                <div>
-                    <input type="radio" id="shape-arc" name="shape" value="arc" />
-                    <label for="shape-arc">Circles</label>
-                </div>
-            </fieldset>
-
         </div>
     </div>
 </body>
