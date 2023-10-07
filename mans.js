@@ -34,10 +34,11 @@ function setupCellCountInput() {
             BOARD_ROWS = inputEl.valueAsNumber;
             CELL_WIDTH = GAME_WIDTH / BOARD_COLS;
             CELL_HEIGHT = GAME_HEIGHT / BOARD_ROWS;
-            board = createRandomizedBoard();
+            randomizeBoard();
         }
 
         inputEl.addEventListener("change", (e) => {
+            // Don't unpause if paused.
             if (!run) {
                 updateCellCount()
             } else {
@@ -85,7 +86,7 @@ function setupRestartButton() {
     const pauseBtn = document.getElementById('pause')
     btn?.addEventListener("click", () => {
         run = false;
-        board = createRandomizedBoard();
+        randomizeBoard();
         if (pauseBtn) {
             pauseBtn.innerHTML = "Pause"
         }
@@ -99,17 +100,17 @@ function setupCanvas() {
     canvas.height = GAME_HEIGHT;
 }
 
-function createRandomizedBoard() {
-    let board = [];
+function randomizeBoard() {
+    let randomizeBoard = [];
     for (let r = 0; r < BOARD_COLS; r++) {
         let rowArr = [];
         for (let c = 0; c < BOARD_ROWS; c++) {
             rowArr.push(Math.floor(Math.random() * 2));
         }
-        board.push(rowArr);
+        randomizeBoard.push(rowArr);
     }
 
-    return board;
+    board = randomizeBoard;
 }
 
 function updateCanvas(board) {
@@ -185,7 +186,6 @@ function getNextBoard() {
         newBoard.push(newRow)
     })
 
-
     board = newBoard;
 }
 
@@ -202,18 +202,14 @@ function draw() {
 }
 
 function init() {
-    board = createRandomizedBoard()
+    timeoutEl = document.getElementById("timeout")
+    randomizeBoard()
     setupCanvas();
     setupCellCountInput();
     setupThemeButton();
     setupPauseButton();
     setupRestartButton();
     setCanvasColors()
-
-    timeoutEl = document.getElementById("timeout")
-    if (!canvas || !timeoutEl) {
-        throw Error("Some DOM element(s) not found.")
-    }
 }
 
 window.addEventListener("DOMContentLoaded", function () {
