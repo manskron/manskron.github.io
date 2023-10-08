@@ -1,4 +1,7 @@
 // @ts-check
+// 
+import { GameOfLife } from "./Gol.js";
+
 
 let GAME_WIDTH = Math.min(window.innerHeight - 350, window.innerWidth);
 let GAME_HEIGHT = GAME_WIDTH;
@@ -13,6 +16,9 @@ let run = true;
 let BG_COLOR = "#eeeeee";
 let FILL_COLOR = "#202020";
 let SHAPE = "rect"
+
+const Game = new GameOfLife(BOARD_COLS);
+board = Game.board;
 
 function setCanvasColors() {
     let bodyEl = document.querySelector("body")
@@ -37,7 +43,7 @@ function setupCellCountInput() {
             CELL_WIDTH = GAME_WIDTH / BOARD_COLS;
             CELL_HEIGHT = GAME_HEIGHT / BOARD_ROWS;
             cellCountEl.innerHTML = BOARD_COLS * BOARD_ROWS
-            randomizeBoard();
+            Game.initializeBoard(true);
         }
 
         inputEl.addEventListener("change", (e) => {
@@ -89,7 +95,7 @@ function setupRestartButton() {
     const pauseBtn = document.getElementById('pause')
     btn?.addEventListener("click", () => {
         run = false;
-        randomizeBoard();
+        Game.initializeBoard(true);
         if (pauseBtn) {
             pauseBtn.innerHTML = "Pause"
         }
@@ -105,19 +111,6 @@ function setupCanvas() {
     }
 }
 
-function randomizeBoard() {
-    let randomizeBoard = [];
-    for (let r = 0; r < BOARD_COLS; r++) {
-        let rowArr = [];
-        for (let c = 0; c < BOARD_ROWS; c++) {
-            rowArr.push(Math.floor(Math.random() * 2));
-        }
-        randomizeBoard.push(rowArr);
-    }
-
-    board = randomizeBoard;
-}
-
 function updateCanvas(board) {
     const ctx = canvas.getContext("2d");
 
@@ -127,7 +120,7 @@ function updateCanvas(board) {
     ctx.strokeStyle = FILL_COLOR;
     board.forEach((row, rowIndex) => {
         row.forEach((col, colIndex) => {
-            if (getCellState(rowIndex, colIndex) === 1) {
+            if (Game.getCellState(rowIndex, colIndex) === 1) {
                 let x = colIndex * CELL_WIDTH;
                 let y = rowIndex * CELL_HEIGHT;
                 switch (SHAPE) {
@@ -144,65 +137,6 @@ function updateCanvas(board) {
     })
 }
 
-function getCellState(rowIndex, colIndex) {
-    if (rowIndex < 0) {
-        return 0;
-    }
-    if (rowIndex > (board.length - 1)) {
-        return 0;
-    }
-
-    let cell = board[rowIndex][colIndex]
-
-    if (cell === undefined) {
-        return 0;
-    }
-
-    return cell;
-}
-
-
-function getNeighbourCount(rowIndex, colIndex) {
-    let count =
-        getCellState(rowIndex - 1, colIndex - 1)
-        + getCellState(rowIndex - 1, colIndex)
-        + getCellState(rowIndex - 1, colIndex + 1)
-        + getCellState(rowIndex, colIndex - 1)
-        + getCellState(rowIndex, colIndex + 1)
-        + getCellState(rowIndex + 1, colIndex - 1)
-        + getCellState(rowIndex + 1, colIndex)
-        + getCellState(rowIndex + 1, colIndex + 1);
-
-    return count;
-}
-
-function createNewCell(cell, rowIndex, colIndex) {
-    let neighbourCount = getNeighbourCount(rowIndex, colIndex)
-    if (cell === 1) {
-        if (neighbourCount < 2 || neighbourCount > 3) {
-            return 0;
-        }
-    } else if (cell == 0 && neighbourCount == 3) {
-        return 1;
-    }
-
-    return cell;
-}
-
-
-function getNextBoard() {
-    let newBoard = [];
-    board.forEach((row, rowIndex) => {
-        let newRow = []
-        row.forEach((cell, colIndex) => {
-            newRow.push(createNewCell(cell, rowIndex, colIndex))
-        })
-        newBoard.push(newRow)
-    })
-
-    board = newBoard;
-}
-
 function draw() {
     const time = timeoutEl ? timeoutEl.valueAsNumber : 0
     const shapeEl = document.querySelector('input[name="shape"]:checked')
@@ -211,7 +145,7 @@ function draw() {
     }
     if (run) {
         updateCanvas(board)
-        getNextBoard()
+        Game.getNextBoard()
     }
 
     setTimeout(() => {
@@ -221,7 +155,7 @@ function draw() {
 
 function init() {
     timeoutEl = document.getElementById("timeout")
-    randomizeBoard()
+    Game.initializeBoard(true)
     setupCanvas();
     setupCellCountInput();
     setupThemeButton();
