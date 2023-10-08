@@ -48,8 +48,10 @@
         gap: 2rem;
     }
 
-    #timeout {
-        direction: rtl;
+    .column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
 </style>
 
@@ -75,7 +77,6 @@
         <canvas id="canvas"></canvas>
         <div>
             <fieldset>
-
                 <legend>Game of life</legend>
                 <fieldset>
                     <legend>State</legend>
@@ -84,14 +85,20 @@
                 </fieldset>
                 <fieldset>
                     <legend>Tune</legend>
-                    <input type="range" min="0" max="500" value="50" id="timeout">Speed</input>
-                    <input type="range" min="10" max="400" value="100" id="cellCountInput">Cell count: <span
-                        id="cellCount">100</span></input>
-
+                    <label for="fpsInput">FPS</label>
+                    <input type="range" min="1" max="120" value="10" id="fpsInput">
+                    <span id="fpsCount">10</span>
+                    </input>
+                    <br>
+                    <label for="cellCountInput">
+                        Cell count
+                    </label>
+                    <input type="range" min="10" max="400" value="100" id="cellCountInput"><span
+                        id="cellCount">100</span>
+                    </input>
                 </fieldset>
                 <fieldset>
                     <legend>Cell shape</legend>
-
                     <div>
                         <input type="radio" id="shape-rect" name="shape" value="rect" checked />
                         <label for="shape-rect">Squares</label>

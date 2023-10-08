@@ -5,6 +5,7 @@ import { GameOfLife } from "./Gol.js";
 
 let CANVAS_WIDTH = Math.min(window.innerHeight - 350, window.innerWidth);
 let CANVAS_HEIGHT = CANVAS_WIDTH;
+let FPS = 60;
 
 const Game = new GameOfLife(100);
 
@@ -12,7 +13,7 @@ let CANVAS_CELL_WIDTH = CANVAS_WIDTH / Game.BOARD_COLS;
 let CANVAS_CELL_HEIGHT = CANVAS_HEIGHT / Game.BOARD_ROWS;
 
 
-let canvas, timeoutEl;
+let canvas, fpsEl;
 let run = true;
 
 let BG_COLOR = "#eeeeee";
@@ -60,6 +61,22 @@ function setupCellCountInput() {
         inputEl.addEventListener("input", (e) => {
             cellCountEl.innerHTML = inputEl.value * inputEl.value;
         })
+    }
+}
+
+function setupFpsInput() {
+    fpsEl = document.getElementById("fpsInput")
+    let fpsCountEl = document.getElementById("fpsCount")
+    if (fpsEl) {
+        console.log(fpsCountEl)
+        FPS = fpsEl.value
+        fpsEl.addEventListener("input", () => {
+            FPS = fpsEl.value
+            if (fpsCountEl) {
+                fpsCountEl.innerHTML = fpsEl.value
+            }
+        })
+
     }
 }
 
@@ -138,8 +155,8 @@ function updateCanvas(board) {
 }
 
 function draw() {
-    const time = timeoutEl ? timeoutEl.valueAsNumber : 0
     const shapeEl = document.querySelector('input[name="shape"]:checked')
+
     if (shapeEl) {
         SHAPE = shapeEl.value;
     }
@@ -150,14 +167,14 @@ function draw() {
 
     setTimeout(() => {
         window.requestAnimationFrame(draw)
-    }, time)
+    }, 1000 / FPS)
 }
 
 function init() {
-    timeoutEl = document.getElementById("timeout")
     Game.initializeBoard(true)
     setupCanvas();
     setupCellCountInput();
+    setupFpsInput();
     setupThemeButton();
     setupPauseButton();
     setupRestartButton();
