@@ -167,12 +167,13 @@ function draw() {
     }
 
     if (run) {
-        setTimeout(() => {
-            updateCanvas(Game.board)
-            Game.getNextBoard()
-            window.requestAnimationFrame(draw)
-        }, 1000 / FPS)
+        updateCanvas(Game.board)
+        Game.getNextBoard()
     }
+
+    setTimeout(() => {
+        window.requestAnimationFrame(draw)
+    }, 1000 / FPS)
 }
 
 function init() {
