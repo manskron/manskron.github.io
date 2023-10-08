@@ -3,7 +3,7 @@
 import { GameOfLife } from "./Gol.js";
 
 
-let CANVAS_WIDTH = Math.min(window.innerHeight - 350, window.innerWidth);
+let CANVAS_WIDTH = Math.min(800, window.innerWidth);
 let CANVAS_HEIGHT = CANVAS_WIDTH;
 let FPS = 60;
 
