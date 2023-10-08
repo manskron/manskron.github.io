@@ -14,6 +14,7 @@ let CANVAS_CELL_HEIGHT = CANVAS_HEIGHT / Game.BOARD_ROWS;
 
 let canvas, timeoutEl;
 let run = true;
+
 let BG_COLOR = "#eeeeee";
 let FILL_COLOR = "#202020";
 let SHAPE = "rect"
@@ -37,8 +38,6 @@ function setupCellCountInput() {
     if (inputEl && cellCountEl) {
 
         function updateCellCount() {
-            // BOARD_COLS = inputEl.valueAsNumber;
-            // BOARD_ROWS = inputEl.valueAsNumber;
             Game.setCellCount(inputEl.value)
             CANVAS_CELL_WIDTH = CANVAS_WIDTH / Game.BOARD_COLS;
             CANVAS_CELL_HEIGHT = CANVAS_HEIGHT / Game.BOARD_ROWS;

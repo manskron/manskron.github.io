@@ -34,6 +34,20 @@
         color: var(--text-color);
     }
 
+    .top {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
     #timeout {
         direction: rtl;
     }
@@ -48,11 +62,15 @@
 </head>
 
 <body>
-    <header>
-        <h1 id="title">hello</h1>
-        <a href="https://mans.computer/modmacs">modmacs</a>
+    <div class="top">
+        <header class="header">
+            <h1 id="title">hello</h1>
+            <nav>
+                <a href="https://mans.computer/modmacs">[modmacs]</a>
+            </nav>
+        </header>
         <button type="button" id="themeToggler">Theme</button>
-    </header>
+    </div>
     <div>
         <canvas id="canvas"></canvas>
         <div>
