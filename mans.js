@@ -68,7 +68,6 @@ function setupFpsInput() {
     fpsEl = document.getElementById("fpsInput")
     let fpsCountEl = document.getElementById("fpsCount")
     if (fpsEl) {
-        console.log(fpsCountEl)
         FPS = fpsEl.value
         fpsEl.addEventListener("input", () => {
             FPS = fpsEl.value
