@@ -47,10 +47,9 @@ export function GameOfLife() {
 window.addEventListener("resize", () => {
   clearTimeout(window.resizedFinished);
   window.resizedFinished = setTimeout(function () {
-    let newWidth = Math.min(600, window.innerWidth - 40);
-    app.canvas.WIDTH = newWidth;
-    app.canvas.HEIGHT = app.canvas.WIDTH;
     app.canvas.canvasEl.getContext("2d").reset();
+    app.canvas.WIDTH = Math.min(600, window.innerWidth - 40);
+    app.canvas.HEIGHT = app.canvas.WIDTH;
     GameOfLife();
   }, 500);
 });
