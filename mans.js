@@ -3,7 +3,7 @@
 import { GameOfLife } from "./Gol.js";
 
 
-let CANVAS_WIDTH = Math.min(800, window.innerWidth);
+let CANVAS_WIDTH = Math.min(800, window.innerWidth - 20);
 let CANVAS_HEIGHT = CANVAS_WIDTH;
 let FPS = 60;
 
@@ -159,14 +159,14 @@ function draw() {
     if (shapeEl) {
         SHAPE = shapeEl.value;
     }
-    if (run) {
-        updateCanvas(Game.board)
-        Game.getNextBoard()
-    }
 
-    setTimeout(() => {
-        window.requestAnimationFrame(draw)
-    }, 1000 / FPS)
+    if (run) {
+        setTimeout(() => {
+            updateCanvas(Game.board)
+            Game.getNextBoard()
+            window.requestAnimationFrame(draw)
+        }, 1000 / FPS)
+    }
 }
 
 function init() {
