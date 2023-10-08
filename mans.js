@@ -3,22 +3,21 @@
 import { GameOfLife } from "./Gol.js";
 
 
-let GAME_WIDTH = Math.min(window.innerHeight - 350, window.innerWidth);
-let GAME_HEIGHT = GAME_WIDTH;
+let CANVAS_WIDTH = Math.min(window.innerHeight - 350, window.innerWidth);
+let CANVAS_HEIGHT = CANVAS_WIDTH;
 
-let BOARD_COLS = 100;
-let BOARD_ROWS = BOARD_COLS;
-let CELL_WIDTH = GAME_WIDTH / BOARD_COLS;
-let CELL_HEIGHT = GAME_HEIGHT / BOARD_ROWS;
+const Game = new GameOfLife(100);
 
-let canvas, timeoutEl, board;
+let CANVAS_CELL_WIDTH = CANVAS_WIDTH / Game.BOARD_COLS;
+let CANVAS_CELL_HEIGHT = CANVAS_HEIGHT / Game.BOARD_ROWS;
+
+
+let canvas, timeoutEl;
 let run = true;
 let BG_COLOR = "#eeeeee";
 let FILL_COLOR = "#202020";
 let SHAPE = "rect"
 
-const Game = new GameOfLife(BOARD_COLS);
-board = Game.board;
 
 function setCanvasColors() {
     let bodyEl = document.querySelector("body")
@@ -38,12 +37,14 @@ function setupCellCountInput() {
     if (inputEl && cellCountEl) {
 
         function updateCellCount() {
-            BOARD_COLS = inputEl.valueAsNumber;
-            BOARD_ROWS = inputEl.valueAsNumber;
-            CELL_WIDTH = GAME_WIDTH / BOARD_COLS;
-            CELL_HEIGHT = GAME_HEIGHT / BOARD_ROWS;
-            cellCountEl.innerHTML = BOARD_COLS * BOARD_ROWS
-            Game.initializeBoard(true);
+            // BOARD_COLS = inputEl.valueAsNumber;
+            // BOARD_ROWS = inputEl.valueAsNumber;
+            Game.setCellCount(inputEl.value)
+            CANVAS_CELL_WIDTH = CANVAS_WIDTH / Game.BOARD_COLS;
+            CANVAS_CELL_HEIGHT = CANVAS_HEIGHT / Game.BOARD_ROWS;
+
+            cellCountEl.innerHTML = Game.BOARD_COLS * Game.BOARD_ROWS
+
         }
 
         inputEl.addEventListener("change", (e) => {
@@ -106,8 +107,8 @@ function setupRestartButton() {
 function setupCanvas() {
     canvas = document.getElementById("canvas");
     if (canvas) {
-        canvas.width = GAME_WIDTH;
-        canvas.height = GAME_HEIGHT;
+        canvas.width = CANVAS_WIDTH;
+        canvas.height = CANVAS_HEIGHT;
     }
 }
 
@@ -115,22 +116,22 @@ function updateCanvas(board) {
     const ctx = canvas.getContext("2d");
 
     ctx.fillStyle = BG_COLOR;
-    ctx.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     ctx.fillStyle = FILL_COLOR;
     ctx.strokeStyle = FILL_COLOR;
     board.forEach((row, rowIndex) => {
-        row.forEach((col, colIndex) => {
+        row.forEach((_, colIndex) => {
             if (Game.getCellState(rowIndex, colIndex) === 1) {
-                let x = colIndex * CELL_WIDTH;
-                let y = rowIndex * CELL_HEIGHT;
+                let x = colIndex * CANVAS_CELL_WIDTH;
+                let y = rowIndex * CANVAS_CELL_HEIGHT;
                 switch (SHAPE) {
                     case "arc":
                         ctx.beginPath();
-                        ctx.arc(x, y, CELL_WIDTH / 2, 0, 2 * Math.PI);
+                        ctx.arc(x, y, CANVAS_CELL_WIDTH / 2, 0, 2 * Math.PI);
                         ctx.stroke();
                         break;
                     default:
-                        ctx.fillRect(x, y, CELL_WIDTH, CELL_HEIGHT);
+                        ctx.fillRect(x, y, CANVAS_CELL_WIDTH, CANVAS_CELL_HEIGHT);
                 }
             }
         })
@@ -144,7 +145,7 @@ function draw() {
         SHAPE = shapeEl.value;
     }
     if (run) {
-        updateCanvas(board)
+        updateCanvas(Game.board)
         Game.getNextBoard()
     }
 

@@ -4,10 +4,16 @@ export class GameOfLife {
         this.BOARD_COLS = cells;
         this.BOARD_ROWS = cells;
         this.board = []
-        this.initializeBoard(true)
+        this.initializeBoard()
     }
 
-    initializeBoard(randomized = false) {
+    setCellCount(count, randomize = true) {
+        this.BOARD_COLS = count;
+        this.BOARD_ROWS = count;
+        this.initializeBoard(randomize)
+    }
+
+    initializeBoard(randomized = true) {
         let tempBoard = [];
         for (let r = 0; r < this.BOARD_COLS; r++) {
             let rowArr = [];
