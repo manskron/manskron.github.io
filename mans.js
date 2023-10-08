@@ -3,7 +3,7 @@
 import { GameOfLife } from "./Gol.js";
 
 
-let CANVAS_WIDTH = Math.min(800, window.innerWidth - 20);
+let CANVAS_WIDTH = Math.min(700, window.innerWidth - 40);
 let CANVAS_HEIGHT = CANVAS_WIDTH;
 let FPS = 60;
 
@@ -20,6 +20,12 @@ let BG_COLOR = "#eeeeee";
 let FILL_COLOR = "#202020";
 let SHAPE = "rect"
 
+function setupCanvasContainer() {
+    const containerEl = document.getElementById('golContainer');
+    if (containerEl) {
+        containerEl.style.maxWidth = `${CANVAS_WIDTH}px`
+    }
+}
 
 function setCanvasColors() {
     let bodyEl = document.querySelector("body")
@@ -171,6 +177,7 @@ function draw() {
 
 function init() {
     Game.initializeBoard(true)
+    setupCanvasContainer()
     setupCanvas();
     setupCellCountInput();
     setupFpsInput();

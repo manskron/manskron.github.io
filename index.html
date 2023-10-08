@@ -25,9 +25,6 @@
         }
     }
 
-    /* * {
-        font-family: Arial, Helvetica, sans-serif;
-    } */
 
     body {
         background: var(--bkg-color);
@@ -35,7 +32,7 @@
     }
 
     .top {
-        width: 100%;
+        /* width: 100%; */
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -53,6 +50,10 @@
         flex-direction: column;
         align-items: flex-start;
     }
+
+    #golContainer {
+        font-family: monospace;
+    }
 </style>
 
 <head>
@@ -68,48 +69,44 @@
         <header class="header">
             <h1 id="title">hello</h1>
             <nav>
-                <a href="https://mans.computer/modmacs">[modmacs]</a>
+                <a href="https://mans.computer/modmacs">[emacs config]</a>
             </nav>
         </header>
         <button type="button" id="themeToggler">Theme</button>
     </div>
     <div>
-        <canvas id="canvas"></canvas>
-        <div>
+        <fieldset id="golContainer">
+            <legend>Game of life</legend>
+            <canvas id="canvas"></canvas>
             <fieldset>
-                <legend>Game of life</legend>
-                <fieldset>
-                    <legend>State</legend>
-                    <button id="pause">Pause</button>
-                    <button id="restart">Regenerate</button>
-                </fieldset>
-                <fieldset>
-                    <legend>Tune</legend>
-                    <label for="fpsInput">FPS</label>
-                    <input type="range" min="1" max="120" value="10" id="fpsInput">
-                    <span id="fpsCount">10</span>
-                    </input>
-                    <br>
-                    <label for="cellCountInput">
-                        Cell count
-                    </label>
-                    <input type="range" min="10" max="400" value="100" id="cellCountInput"><span
-                        id="cellCount">100</span>
-                    </input>
-                </fieldset>
-                <fieldset>
-                    <legend>Cell shape</legend>
-                    <div>
-                        <input type="radio" id="shape-rect" name="shape" value="rect" checked />
-                        <label for="shape-rect">Squares</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="shape-arc" name="shape" value="arc" />
-                        <label for="shape-arc">Circles</label>
-                    </div>
-                </fieldset>
-
+                <legend>State</legend>
+                <button id="pause">Pause</button>
+                <button id="restart">Regenerate</button>
             </fieldset>
-        </div>
+            <fieldset>
+                <legend>Tune</legend>
+                <label for="fpsInput">FPS</label>
+                <input type="range" min="1" max="120" value="10" id="fpsInput">
+                <span id="fpsCount">10</span>
+                </input>
+                <br>
+                <label for="cellCountInput">
+                    Cell count
+                </label>
+                <input type="range" min="10" max="400" value="100" id="cellCountInput"><span id="cellCount">100</span>
+                </input>
+            </fieldset>
+            <fieldset>
+                <legend>Cell shape</legend>
+                <div>
+                    <input type="radio" id="shape-rect" name="shape" value="rect" checked />
+                    <label for="shape-rect">Squares</label>
+                </div>
+                <div>
+                    <input type="radio" id="shape-arc" name="shape" value="arc" />
+                    <label for="shape-arc">Circles</label>
+                </div>
+            </fieldset>
+
     </div>
 </body>
