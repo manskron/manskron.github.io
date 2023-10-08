@@ -31,8 +31,7 @@
         color: var(--text-color);
     }
 
-    .top {
-        /* width: 100%; */
+    .nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -42,13 +41,8 @@
     .header {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         gap: 2rem;
-    }
-
-    .column {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
     }
 
     #golContainer {
@@ -67,15 +61,11 @@
 <body>
     <header class="header">
         <h1 id="title">måns.computer</h1>
+        <button type="button" id="themeToggler" aria-label="Toggle theme"></button>
     </header>
-    <div class="top">
-        <header class="header">
-            <nav>
+            <nav class="nav">
                 <a href="https://mans.computer/modmacs">[emacs config]</a>
             </nav>
-        </header>
-        <button type="button" id="themeToggler">Theme</button>
-    </div>
     <div>
         <fieldset id="golContainer">
             <legend>Game of life</legend>
