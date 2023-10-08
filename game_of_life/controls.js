@@ -1,5 +1,5 @@
 // @ts-check
-import { app, Game } from "../mans.js";
+import { app, Game } from "./index.js";
 
 function setupCellCountInput() {
   const inputEl = document.getElementById("cellCountInput");

@@ -1,6 +1,6 @@
-import { app, Game } from "../mans.js";
+import { app, Game } from "./index.js";
 
-export function updateCanvas(board) {
+export function drawCanvas(board) {
   const ctx = app.canvas.canvasEl.getContext("2d");
   let bodyEl = document.querySelector("body");
 
@@ -25,8 +25,8 @@ export function updateCanvas(board) {
           case "arc":
             ctx.beginPath();
             ctx.arc(x + 3, y + 3, app.canvas.CELL_WIDTH / 2, 0, 2 * Math.PI);
-            // ctx.stroke();
-            ctx.fill();
+            ctx.stroke();
+            // ctx.fill();
             break;
           default:
             ctx.fillRect(x, y, app.canvas.CELL_WIDTH, app.canvas.CELL_HEIGHT);
