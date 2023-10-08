@@ -52,6 +52,6 @@ function setupCanvasEl() {
 }
 
 export function setupCanvas() {
-  setupCanvasEl();
   setupCanvasContainer();
+  setupCanvasEl();
 }
