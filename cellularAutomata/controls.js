@@ -4,14 +4,15 @@ import { app, Game } from "./index.js";
 function initCellCountInput() {
   const inputEl = document.getElementById("cellCountInput");
   const cellCountEl = document.getElementById("cellCount");
-  cellCountEl.innerHTML = inputEl.value * inputEl.value;
+  cellCountEl.innerHTML = Math.floor(
+    app.tickLength * Math.floor(inputEl.value / 10)
+  );
+
   if (inputEl && cellCountEl) {
     function updateCellCount() {
       Game.setCellCount(inputEl.value);
       app.canvas.CELL_WIDTH = app.canvas.WIDTH / Game.BOARD_COLS;
       app.canvas.CELL_HEIGHT = app.canvas.HEIGHT / Game.BOARD_ROWS;
-
-      cellCountEl.innerHTML = Game.BOARD_COLS * Game.BOARD_ROWS;
     }
 
     inputEl.addEventListener("change", (e) => {
@@ -26,7 +27,8 @@ function initCellCountInput() {
     });
 
     inputEl.addEventListener("input", (e) => {
-      cellCountEl.innerHTML = inputEl.value * inputEl.value;
+      let temp = Math.floor(app.tickLength * Math.floor(inputEl.value / 10));
+      cellCountEl.innerHTML = temp;
     });
   }
 }
