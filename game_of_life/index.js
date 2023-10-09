@@ -3,9 +3,7 @@ import { Gol } from "./Game.js";
 import { setupControls } from "./controls.js";
 import { setupCanvas, drawCanvas } from "./canvas.js";
 
-window.app_gol = { canvas: {} };
-
-export const app = window.app_gol;
+export const app = { canvas: {} };
 export const Game = new Gol(100);
 
 app.run = true;
