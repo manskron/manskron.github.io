@@ -1,7 +1,7 @@
 // @ts-check
 import { app, Game } from "./index.js";
 
-function setupCellCountInput() {
+function initCellCountInput() {
   const inputEl = document.getElementById("cellCountInput");
   const cellCountEl = document.getElementById("cellCount");
   cellCountEl.innerHTML = inputEl.value * inputEl.value;
@@ -31,13 +31,14 @@ function setupCellCountInput() {
   }
 }
 
-function setupFpsInput() {
+function initFpsInput() {
   let fpsEl = document.getElementById("fpsInput");
   let fpsCountEl = document.getElementById("fpsCount");
   if (fpsEl) {
-    app.FPS = fpsEl.value;
+    app.setFps(fpsEl.value);
+
     fpsEl.addEventListener("input", () => {
-      app.FPS = fpsEl.value;
+      app.setFps(fpsEl.value);
       if (fpsCountEl) {
         fpsCountEl.innerHTML = fpsEl.value;
       }
@@ -45,7 +46,7 @@ function setupFpsInput() {
   }
 }
 
-function setupPauseButton() {
+function initPauseButton() {
   const btn = document.getElementById("pause");
   btn?.addEventListener("click", () => {
     app.run = !app.run;
@@ -57,7 +58,7 @@ function setupPauseButton() {
   });
 }
 
-function setupRestartButton() {
+function initRestartButton() {
   const btn = document.getElementById("restart");
   const pauseBtn = document.getElementById("pause");
   btn.addEventListener("click", () => {
@@ -70,7 +71,7 @@ function setupRestartButton() {
   });
 }
 
-function setUpShapeInput() {
+function initShapeInput() {
   const shapeEls = document.querySelectorAll('input[name="shape"]');
   shapeEls.forEach((shapeEl) => {
     shapeEl.addEventListener("input", (e) => {
@@ -81,10 +82,10 @@ function setUpShapeInput() {
   });
 }
 
-export function setupControls() {
-  setupCellCountInput();
-  setupFpsInput();
-  setupPauseButton();
-  setupRestartButton();
-  setUpShapeInput();
+export function initControls() {
+  initCellCountInput();
+  initFpsInput();
+  initPauseButton();
+  initRestartButton();
+  initShapeInput();
 }

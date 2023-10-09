@@ -36,14 +36,14 @@ export function drawCanvas(board) {
   });
 }
 
-function setupCanvasContainer() {
+function initCanvasContainer() {
   const containerEl = document.getElementById("golContainer");
   if (containerEl) {
     containerEl.style.maxWidth = `${app.canvas.WIDTH}px`;
   }
 }
 
-function setupCanvasEl() {
+function initCanvasEl() {
   app.canvas.canvasEl = document.getElementById("canvas");
   if (app.canvas.canvasEl) {
     app.canvas.canvasEl.width = app.canvas.WIDTH;
@@ -51,7 +51,7 @@ function setupCanvasEl() {
   }
 }
 
-export function setupCanvas() {
-  setupCanvasContainer();
-  setupCanvasEl();
+export function initCanvas() {
+  initCanvasContainer();
+  initCanvasEl();
 }

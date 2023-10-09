@@ -1,5 +1,5 @@
 // @ts-check
-export class Gol {
+export class GameOfLife {
   constructor(cells) {
     this.BOARD_COLS = cells;
     this.BOARD_ROWS = cells;

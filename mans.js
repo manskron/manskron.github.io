@@ -1,4 +1,4 @@
-import { GameOfLife } from "./game_of_life/index.js";
+import "./cellularAutomata/index.js";
 
 function setupThemeButton() {
   const btn = document.getElementById("themeToggler");
@@ -26,5 +26,4 @@ function setupThemeButton() {
 
 window.addEventListener("DOMContentLoaded", function () {
   setupThemeButton();
-  GameOfLife();
 });
