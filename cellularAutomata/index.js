@@ -1,3 +1,13 @@
+//  @TODOS ----------------------------------------------
+//
+//  [] Set up all DOM elements through functions instead
+//  of having to write all the HTML wherever you want
+//  to use this thing;
+//
+//  [] Move all DOM setup to dom.js
+//
+//  [] How do we add other cellular automata on top of GoL?
+
 // @ts-check
 import { GameOfLife } from "./Sim.js";
 import { initControls } from "./controls.js";
@@ -68,6 +78,9 @@ window.addEventListener("DOMContentLoaded", () => {
   main(performance.now());
 });
 
+// I should probably optimize this thing.
+// Also, this should be moved to where all
+// other DOM events are handled.
 window.addEventListener("resize", () => {
   clearTimeout(window.resizedFinished);
   window.resizedFinished = setTimeout(function () {
