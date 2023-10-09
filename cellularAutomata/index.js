@@ -68,15 +68,16 @@ window.addEventListener("DOMContentLoaded", () => {
   main(performance.now());
 });
 
-// window.addEventListener("resize", () => {
-//   clearTimeout(window.resizedFinished);
-//   window.resizedFinished = setTimeout(function () {
-//     if (app.canvas.WIDTH === 600 && window.innerWidth > 600) {
-//       return;
-//     }
-//     app.canvas.canvasEl.getContext("2d").reset();
-//     app.canvas.WIDTH = Math.min(600, window.innerWidth - 40);
-//     app.canvas.HEIGHT = app.canvas.WIDTH;
-//     main(performance.now());
-//   }, 250);
-// });
+window.addEventListener("resize", () => {
+  clearTimeout(window.resizedFinished);
+  window.resizedFinished = setTimeout(function () {
+    if (app.canvas.WIDTH === 600 && window.innerWidth > 600) {
+      return;
+    }
+    app.canvas.canvasEl.getContext("2d").reset();
+    app.canvas.WIDTH = Math.min(600, window.innerWidth - 40);
+    app.canvas.HEIGHT = app.canvas.WIDTH;
+    init();
+    main(performance.now());
+  }, 250);
+});
