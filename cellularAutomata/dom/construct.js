@@ -3,7 +3,7 @@ export function constructDom() {
   const appEl = document.getElementById("app");
 
   const golContainer = document.createElement("fieldset");
-  golContainer.setAttribute("id", "golContainer2");
+  golContainer.setAttribute("id", "golContainer");
   appEl.append(golContainer);
 
   const title = document.createElement("legend");
@@ -11,6 +11,7 @@ export function constructDom() {
   golContainer.append(title);
 
   const canvas = document.createElement("canvas");
+  canvas.setAttribute("id", "canvas");
   golContainer.append(canvas);
 
   const stateContainer = document.createElement("fieldset");
@@ -55,7 +56,7 @@ export function constructDom() {
   const fpsDisplay = document.createElement("span");
   fpsDisplay.setAttribute("id", "fpsCount");
   fpsDisplay.innerText = "60";
-  fpsInput.append(fpsDisplay);
+  tuneContainer.append(fpsDisplay);
 
   const br = document.createElement("br");
   tuneContainer.append(br);
@@ -74,7 +75,7 @@ export function constructDom() {
   tuneContainer.append(cellCountInput);
 
   const cellCountDisplay = document.createElement("span");
-  fpsDisplay.setAttribute("id", "cellCount");
-  fpsDisplay.innerText = "300";
-  cellCountInput.append(cellCountDisplay);
+  cellCountDisplay.setAttribute("id", "cellCount");
+  cellCountDisplay.innerText = "300";
+  tuneContainer.append(cellCountDisplay);
 }

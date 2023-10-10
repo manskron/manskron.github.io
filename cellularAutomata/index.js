@@ -1,6 +1,6 @@
 //  @TODOS ----------------------------------------------
 //
-//  [] Set up all DOM elements through functions instead
+//  [x] Set up all DOM elements through functions instead
 //     of having to write all the HTML wherever you want
 //     to use this thing;
 //
@@ -80,6 +80,7 @@ function main(tFrame) {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
+  constructDom();
   init();
   main(performance.now());
 });

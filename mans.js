@@ -27,3 +27,5 @@ function setupThemeButton() {
 window.addEventListener("DOMContentLoaded", function () {
   setupThemeButton();
 });
+
+console.log(document.styleSheets);
