@@ -1,4 +1,4 @@
-import { app, Game } from "../index.js";
+import { Game } from "../index.js";
 
 function updateCellCount(cellCount) {
   Game.setCellCount(cellCount);
@@ -44,10 +44,4 @@ export function handleInputFps(e) {
 export function handleInputCellCount(e) {
   let col = e.target.value;
   app.dom.displayCellCountEl.innerHTML = col * col;
-}
-
-export function handleInputShape(e) {
-  if (e.target.checked) {
-    app.canvas.SHAPE = e.target.value;
-  }
 }

@@ -15,22 +15,12 @@ export function drawCanvas(board) {
   ctx.fillStyle = app.canvas.BG_COLOR;
   ctx.fillRect(0, 0, app.canvas.WIDTH, app.canvas.HEIGHT);
   ctx.fillStyle = app.canvas.FILL_COLOR;
-  ctx.strokeStyle = app.canvas.FILL_COLOR;
   board.forEach((row, rowIndex) => {
     row.forEach((_, colIndex) => {
       if (Game.getCellState(rowIndex, colIndex) === 1) {
         let x = colIndex * app.canvas.CELL_WIDTH;
         let y = rowIndex * app.canvas.CELL_HEIGHT;
-        switch (app.canvas.SHAPE) {
-          case "arc":
-            ctx.beginPath();
-            ctx.arc(x + 3, y + 3, app.canvas.CELL_WIDTH / 2, 0, 2 * Math.PI);
-            ctx.stroke();
-            // ctx.fill();
-            break;
-          default:
-            ctx.fillRect(x, y, app.canvas.CELL_WIDTH, app.canvas.CELL_HEIGHT);
-        }
+        ctx.fillRect(x, y, app.canvas.CELL_WIDTH, app.canvas.CELL_HEIGHT);
       }
     });
   });

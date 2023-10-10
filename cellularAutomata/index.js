@@ -1,17 +1,22 @@
 //  @TODOS ----------------------------------------------
 //
 //  [] Set up all DOM elements through functions instead
-//  of having to write all the HTML wherever you want
-//  to use this thing;
+//     of having to write all the HTML wherever you want
+//     to use this thing;
 //
-//  [] Move all DOM setup to dom.js
+//  [x] Move all DOM setup to an appropriate place
 //
 //  [] How do we add other cellular automata on top of GoL?
+//
+//  [] Remove cell shape option, it's stupid (for the
+//     moment at least).
+//
 
 // @ts-check
 import { GameOfLife } from "./Sim.js";
 import { initControls } from "./dom/controls.js";
 import { initCanvas, drawCanvas } from "./canvas.js";
+import { constructDom } from "./dom/construct.js";
 
 export const app = {
   canvas: {},
@@ -20,6 +25,8 @@ export const app = {
     this.tickLength = 1000 / parseInt(fps);
   },
 };
+
+window.app = app;
 
 export const Game = new GameOfLife(300);
 
@@ -35,8 +42,6 @@ app.canvas.CELL_HEIGHT = app.canvas.HEIGHT / Game.BOARD_ROWS;
 
 app.canvas.BG_COLOR = "#eeeeee";
 app.canvas.FILL_COLOR = "#202020";
-app.canvas.SHAPE = "rect";
-app.previousBoard = [];
 
 app.updateCellCount = function (cellCount) {
   Game.setCellCount(cellCount);
