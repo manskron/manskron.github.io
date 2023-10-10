@@ -6,10 +6,10 @@
 //
 //  [x] Move all DOM setup to an appropriate place
 //
-//  [] How do we add other cellular automata on top of GoL?
-//
-//  [] Remove cell shape option, it's stupid (for the
+//  [x] Remove cell shape option, it's stupid (for the
 //     moment at least).
+//
+//  [] How do we add other cellular automata on top of GoL?
 //
 
 // @ts-check
