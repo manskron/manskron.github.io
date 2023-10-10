@@ -10,11 +10,12 @@
 
 // @ts-check
 import { GameOfLife } from "./Sim.js";
-import { initControls } from "./controls.js";
+import { initControls } from "./dom/controls.js";
 import { initCanvas, drawCanvas } from "./canvas.js";
 
 export const app = {
   canvas: {},
+  dom: {},
   setFps(fps) {
     this.tickLength = 1000 / parseInt(fps);
   },
