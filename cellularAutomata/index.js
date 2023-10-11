@@ -17,7 +17,7 @@ import { GameOfLife } from "./Sim.js";
 import { initControls } from "./dom/controls.js";
 import { initCanvas, drawCanvas } from "./canvas.js";
 import { constructDom } from "./dom/construct.js";
-import { handleWindowResize } from "./dom/handlers.js";
+import { handleResizeWindow } from "./dom/handlers.js";
 
 export const app = {
   canvas: {},
@@ -50,13 +50,11 @@ app.updateCellCount = function (cellCount) {
   app.canvas.CELL_HEIGHT = app.canvas.HEIGHT / Game.BOARD_ROWS;
 };
 
-function init() {
+app.init = function init() {
   Game.initializeBoard(true);
-
   initCanvas();
   initControls();
-  window.addEventListener("resize", handleWindowResize);
-}
+};
 
 function update() {
   Game.getNextBoard();
@@ -68,7 +66,7 @@ function render() {
 
 app.lastTick = performance.now();
 
-function main(tFrame) {
+app.main = function main(tFrame) {
   app.stopMain = window.requestAnimationFrame(main);
   const nextTick = app.lastTick + app.tickLength;
 
@@ -79,10 +77,12 @@ function main(tFrame) {
       render();
     }
   }
-}
+};
 
 window.addEventListener("DOMContentLoaded", () => {
   constructDom();
-  init();
-  main(performance.now());
+  app.init();
+  app.main(performance.now());
 });
+
+window.addEventListener("resize", handleResizeWindow);

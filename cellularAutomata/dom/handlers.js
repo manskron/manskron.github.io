@@ -50,7 +50,7 @@ export function handleInputCellCount(e) {
 // I should probably optimize this thing.
 // Also, this should be moved to where all
 // other DOM events are handled.
-export function handleWindowResize() {
+export function handleResizeWindow() {
   clearTimeout(window.resizedFinished);
   window.resizedFinished = setTimeout(function () {
     if (app.canvas.WIDTH === 600 && window.innerWidth > 600) {
@@ -59,7 +59,7 @@ export function handleWindowResize() {
     app.canvas.canvasEl.getContext("2d").reset();
     app.canvas.WIDTH = Math.min(600, window.innerWidth - 40);
     app.canvas.HEIGHT = app.canvas.WIDTH;
-    init();
-    main(performance.now());
+    app.init();
+    app.main(performance.now());
   }, 250);
 }
