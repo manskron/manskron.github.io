@@ -48,12 +48,30 @@ app.updateCellCount = function (cellCount) {
   app.canvas.CELL_WIDTH = app.canvas.WIDTH / Game.BOARD_COLS;
   app.canvas.CELL_HEIGHT = app.canvas.HEIGHT / Game.BOARD_ROWS;
 };
+//
+// I should probably optimize this thing.
+// Also, this should be moved to where all
+// other DOM events are handled.
+function handleWindowResize() {
+  clearTimeout(window.resizedFinished);
+  window.resizedFinished = setTimeout(function () {
+    if (app.canvas.WIDTH === 600 && window.innerWidth > 600) {
+      return;
+    }
+    app.canvas.canvasEl.getContext("2d").reset();
+    app.canvas.WIDTH = Math.min(600, window.innerWidth - 40);
+    app.canvas.HEIGHT = app.canvas.WIDTH;
+    init();
+    main(performance.now());
+  }, 250);
+}
 
 function init() {
   Game.initializeBoard(true);
 
   initCanvas();
   initControls();
+  window.addEventListener("resize", handleWindowResize);
 }
 
 function update() {
@@ -83,21 +101,4 @@ window.addEventListener("DOMContentLoaded", () => {
   constructDom();
   init();
   main(performance.now());
-});
-
-// I should probably optimize this thing.
-// Also, this should be moved to where all
-// other DOM events are handled.
-window.addEventListener("resize", () => {
-  clearTimeout(window.resizedFinished);
-  window.resizedFinished = setTimeout(function () {
-    if (app.canvas.WIDTH === 600 && window.innerWidth > 600) {
-      return;
-    }
-    app.canvas.canvasEl.getContext("2d").reset();
-    app.canvas.WIDTH = Math.min(600, window.innerWidth - 40);
-    app.canvas.HEIGHT = app.canvas.WIDTH;
-    init();
-    main(performance.now());
-  }, 250);
 });
