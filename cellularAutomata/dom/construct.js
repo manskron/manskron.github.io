@@ -1,83 +1,30 @@
-//@ts-check
 export function constructDom() {
     const appEl = document.getElementById("cells");
 
-    const golContainer = document.createElement("fieldset");
-    golContainer.setAttribute("id", "golContainer");
-    golContainer.style.fontFamily = "monospace";
-    appEl.append(golContainer);
-
-    const title = document.createElement("legend");
-    title.innerText = "Game of life";
-    golContainer.append(title);
-
-    const canvas = document.createElement("canvas");
-    canvas.setAttribute("id", "canvas");
-    canvas.style.width = "100%";
-    golContainer.append(canvas);
-
-    const stateContainer = document.createElement("fieldset");
-    golContainer.append(stateContainer);
-
-    const stateLegend = document.createElement("legend");
-    stateLegend.innerText = "State";
-    stateContainer.append(stateLegend);
-
-    const pauseBtn = document.createElement("button");
-    pauseBtn.setAttribute("id", "pause");
-    pauseBtn.setAttribute("type", "button");
-    pauseBtn.innerText = "Pause";
-    stateContainer.append(pauseBtn);
-
-    const restartBtn = document.createElement("button");
-    restartBtn.setAttribute("id", "restart");
-    restartBtn.setAttribute("type", "button");
-    restartBtn.innerText = "Restart";
-    stateContainer.append(restartBtn);
-
-    const tuneContainer = document.createElement("fieldset");
-    golContainer.append(tuneContainer);
-
-    const tuneLegend = document.createElement("legend");
-    tuneLegend.textContent = "Tune";
-    tuneContainer.append(tuneLegend);
-
-    const fpsLabel = document.createElement("label");
-    fpsLabel.setAttribute("for", "fpsInput");
-    fpsLabel.innerText = "FPS";
-    tuneContainer.append(fpsLabel);
-
-    const fpsInput = document.createElement("input");
-    fpsInput.setAttribute("id", "fpsInput");
-    fpsInput.setAttribute("type", "range");
-    fpsInput.setAttribute("min", "0");
-    fpsInput.setAttribute("max", "120");
-    fpsInput.setAttribute("value", "60");
-    tuneContainer.append(fpsInput);
-
-    const fpsDisplay = document.createElement("span");
-    fpsDisplay.setAttribute("id", "fpsCount");
-    fpsDisplay.innerText = "60";
-    tuneContainer.append(fpsDisplay);
-
-    const br = document.createElement("br");
-    tuneContainer.append(br);
-
-    const cellCountLabel = document.createElement("label");
-    cellCountLabel.setAttribute("for", "cellCountInput");
-    cellCountLabel.innerText = "Resolution";
-    tuneContainer.append(cellCountLabel);
-
-    const cellCountInput = document.createElement("input");
-    cellCountInput.setAttribute("id", "cellCountInput");
-    cellCountInput.setAttribute("type", "range");
-    cellCountInput.setAttribute("min", "10");
-    cellCountInput.setAttribute("max", "400");
-    cellCountInput.setAttribute("value", "300");
-    tuneContainer.append(cellCountInput);
-
-    const cellCountDisplay = document.createElement("span");
-    cellCountDisplay.setAttribute("id", "cellCount");
-    cellCountDisplay.innerText = "300";
-    tuneContainer.append(cellCountDisplay);
+    appEl.innerHTML = `
+    <fieldset id="golContainer" style="font-family: monospace; max-width: 600px">
+        <legend>Game of life</legend>
+        <canvas id="canvas" style="width: 100%"></canvas>
+        <fieldset>
+            <legend>State</legend>
+            <button id="pause" type="button">Pause</button>
+            <button id="restart" type="button">Restart</button>
+        </fieldset>
+        <fieldset>
+            <legend>Tune</legend>
+            <label for="fpsInput">FPS</label>
+            <input id="fpsInput" type="range" min="0" max="120" value="60" />
+            <span id="fpsCount">60</span>
+            <br />
+            <label for="cellCountInput">Resolution</label>
+            <input
+                id="cellCountInput"
+                type="range"
+                min="10"
+                max="400"
+                value="300"
+            /><span id="cellCount">90000</span>
+        </fieldset>
+    </fieldset>
+    `;
 }

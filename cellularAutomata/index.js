@@ -17,7 +17,11 @@
 // @ts-check
 import { GameOfLife } from "./Sim.js";
 import { initControls } from "./dom/controls.js";
-import { initCanvas, drawCanvas, canvasResizeObserver } from "./canvas.js";
+import {
+    initCanvas,
+    drawCanvas,
+    canvasResizeObserver,
+} from "./canvas/index.js";
 import { constructDom } from "./dom/construct.js";
 
 export const app = {

@@ -1,4 +1,4 @@
-import { app, Game } from "./index.js";
+import { Game } from "../index.js";
 
 export function drawCanvas(board) {
     const ctx = app.canvas.canvasEl.getContext("2d");
