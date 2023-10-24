@@ -17,25 +17,23 @@
 // @ts-check
 import { GameOfLife } from "./Sim.js";
 import { initControls } from "./dom/controls.js";
+import { constructDom } from "./dom/construct.js";
 import {
     initCanvas,
     drawCanvas,
     canvasResizeObserver,
 } from "./canvas/index.js";
-import { constructDom } from "./dom/construct.js";
 
 export const app = {
     canvas: {},
     dom: {},
+    sim: new GameOfLife(300),
     setFps(fps) {
         this.tickLength = 1000 / parseInt(fps);
     },
 };
 
 window.app = app;
-
-export const Game = new GameOfLife(300);
-
 app.run = true;
 
 app.tickLength = 1000 / 60;
@@ -44,7 +42,7 @@ app.canvas.BG_COLOR = "#eeeeee";
 app.canvas.FILL_COLOR = "#202020";
 
 app.init = function init() {
-    Game.initializeBoard(true);
+    this.sim.initializeBoard(true);
 
     initCanvas();
     canvasResizeObserver.observe(app.canvas.canvasEl);
@@ -53,11 +51,11 @@ app.init = function init() {
 };
 
 function update() {
-    Game.getNextBoard();
+    app.sim.getNextBoard();
 }
 
 function render() {
-    drawCanvas(Game.board);
+    drawCanvas(app.sim.board);
 }
 
 app.lastTick = performance.now();

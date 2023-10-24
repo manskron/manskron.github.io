@@ -1,9 +1,9 @@
-import { Game } from "../index.js";
-
 function updateCellCount(cellCount) {
-    Game.setCellCount(cellCount);
-    app.canvas.CELL_WIDTH = app.canvas.canvasEl.offsetWidth / Game.BOARD_COLS;
-    app.canvas.CELL_HEIGHT = app.canvas.canvasEl.offsetHeight / Game.BOARD_ROWS;
+    app.sim.setCellCount(cellCount);
+    app.canvas.CELL_WIDTH =
+        app.canvas.canvasEl.offsetWidth / app.sim.BOARD_COLS;
+    app.canvas.CELL_HEIGHT =
+        app.canvas.canvasEl.offsetHeight / app.sim.BOARD_ROWS;
 }
 
 export function handleClickPause(e) {
@@ -17,7 +17,7 @@ export function handleClickPause(e) {
 
 export function handleClickRestart() {
     app.run = false;
-    Game.initializeBoard(true);
+    app.sim.initializeBoard(true);
     if (app.dom.btnPause) {
         app.dom.btnPause.innerHTML = "Pause";
     }

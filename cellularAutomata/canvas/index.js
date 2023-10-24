@@ -1,6 +1,5 @@
-import { Game } from "../index.js";
-
 export function drawCanvas(board) {
+    const sim = app.sim;
     const ctx = app.canvas.canvasEl.getContext("2d");
     let bodyEl = document.querySelector("body");
 
@@ -24,7 +23,7 @@ export function drawCanvas(board) {
     ctx.fillStyle = app.canvas.FILL_COLOR;
     board.forEach((row, rowIndex) => {
         row.forEach((_, colIndex) => {
-            if (Game.getCellState(rowIndex, colIndex) === 1) {
+            if (app.sim.getCellState(rowIndex, colIndex) === 1) {
                 let x = colIndex * app.canvas.CELL_WIDTH;
                 let y = rowIndex * app.canvas.CELL_HEIGHT;
                 ctx.fillRect(
@@ -54,9 +53,9 @@ export const canvasResizeObserver = new ResizeObserver(() => {
     app.run = false;
     window.resizedFinished = setTimeout(() => {
         app.canvas.CELL_WIDTH =
-            app.canvas.canvasEl.offsetWidth / Game.BOARD_COLS;
+            app.canvas.canvasEl.offsetWidth / app.sim.BOARD_COLS;
         app.canvas.CELL_HEIGHT =
-            app.canvas.canvasEl.offsetHeight / Game.BOARD_ROWS;
+            app.canvas.canvasEl.offsetHeight / app.sim.BOARD_ROWS;
         app.canvas.canvasEl.width = app.canvas.canvasEl.offsetWidth;
         app.canvas.canvasEl.height = app.canvas.canvasEl.offsetWidth;
         app.run = true;
