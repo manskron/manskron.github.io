@@ -15,7 +15,7 @@
 //
 
 // @ts-check
-import { GameOfLife } from "./Sim.js";
+import { GameOfLife } from "./sim/Sim.js";
 import { initControls } from "./dom/controls.js";
 import { constructDom } from "./dom/construct.js";
 import {
