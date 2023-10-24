@@ -17,7 +17,6 @@ import { GameOfLife } from "./Sim.js";
 import { initControls } from "./dom/controls.js";
 import { initCanvas, drawCanvas } from "./canvas.js";
 import { constructDom } from "./dom/construct.js";
-import { handleResizeWindow } from "./dom/handlers.js";
 
 export const app = {
   canvas: {},
@@ -35,7 +34,7 @@ app.run = true;
 
 app.tickLength = 1000 / 60;
 
-app.canvas.WIDTH = Math.min(600, window.innerWidth - 40);
+app.canvas.WIDTH = Math.min(600, window.innerWidth);
 app.canvas.HEIGHT = app.canvas.WIDTH;
 
 app.canvas.CELL_WIDTH = app.canvas.WIDTH / Game.BOARD_COLS;
@@ -84,5 +83,3 @@ window.addEventListener("DOMContentLoaded", () => {
   app.init();
   app.main(performance.now());
 });
-
-window.addEventListener("resize", handleResizeWindow);

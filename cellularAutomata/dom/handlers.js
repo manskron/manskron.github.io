@@ -45,21 +45,3 @@ export function handleInputCellCount(e) {
   let col = e.target.value;
   app.dom.displayCellCountEl.innerHTML = col * col;
 }
-
-//
-// I should probably optimize this thing.
-// Also, this should be moved to where all
-// other DOM events are handled.
-export function handleResizeWindow() {
-  clearTimeout(window.resizedFinished);
-  window.resizedFinished = setTimeout(function () {
-    if (app.canvas.WIDTH === 600 && window.innerWidth > 600) {
-      return;
-    }
-    app.canvas.canvasEl.getContext("2d").reset();
-    app.canvas.WIDTH = Math.min(600, window.innerWidth - 40);
-    app.canvas.HEIGHT = app.canvas.WIDTH;
-    app.init();
-    app.main(performance.now());
-  }, 250);
-}

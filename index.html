@@ -1,54 +1,7 @@
 <!DOCTYPE html>
 
-<style>
-    body {
-        --text-color: #222;
-        --bkg-color: #eee;
-    }
-
-    body.dark-theme {
-        --text-color: #eee;
-        --bkg-color: #121212;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        body {
-            --text-color: #eee;
-            --bkg-color: #121212;
-        }
-
-        body.light-theme {
-            --text-color: #222;
-            --bkg-color: #eee;
-        }
-    }
-
-
-    body {
-        background: var(--bkg-color);
-        color: var(--text-color);
-    }
-
-    .nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 1rem;
-    }
-
-    .header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 2rem;
-    }
-
-    #golContainer {
-        font-family: monospace;
-    }
-</style>
-
 <head>
+    <link rel="stylesheet" href="style.css">
     <script src="mans.js" defer type="module"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
