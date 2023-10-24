@@ -1,49 +1,48 @@
-    body {
-        --text-color: #222;
-        --bkg-color: #eee;
-    }
+body {
+    --text-color: #222;
+    --bkg-color: #eee;
+}
 
-    body.dark-theme {
+body.dark-theme {
+    --text-color: #eee;
+    --bkg-color: #121212;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
         --text-color: #eee;
         --bkg-color: #121212;
     }
 
-    @media (prefers-color-scheme: dark) {
-        body {
-            --text-color: #eee;
-            --bkg-color: #121212;
-        }
-
-        body.light-theme {
-            --text-color: #222;
-            --bkg-color: #eee;
-        }
+    body.light-theme {
+        --text-color: #222;
+        --bkg-color: #eee;
     }
+}
 
+body {
+    background: var(--bkg-color);
+    color: var(--text-color);
+}
 
-    body {
-        background: var(--bkg-color);
-        color: var(--text-color);
-    }
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
 
-    .nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 1rem;
-    }
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
 
-    .header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 2rem;
-    }
+#golContainer {
+    font-family: monospace;
+}
 
-    #golContainer {
-        font-family: monospace;
-    }
-    
-    #canvas {
-        width: 100%;
-    }
+#canvas {
+    width: 100%;
+}
