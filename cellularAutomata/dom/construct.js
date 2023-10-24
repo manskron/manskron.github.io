@@ -1,6 +1,6 @@
 //@ts-check
 export function constructDom() {
-    const appEl = document.getElementById("app");
+    const appEl = document.getElementById("cells");
 
     const golContainer = document.createElement("fieldset");
     golContainer.setAttribute("id", "golContainer");

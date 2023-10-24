@@ -50,10 +50,17 @@ function initCanvasEl() {
 }
 
 export const canvasResizeObserver = new ResizeObserver(() => {
-    app.canvas.CELL_WIDTH = app.canvas.canvasEl.offsetWidth / Game.BOARD_COLS;
-    app.canvas.CELL_HEIGHT = app.canvas.canvasEl.offsetHeight / Game.BOARD_ROWS;
-    app.canvas.canvasEl.width = app.canvas.canvasEl.offsetWidth;
-    app.canvas.canvasEl.height = app.canvas.canvasEl.offsetWidth;
+    clearTimeout(window.resizedFinished);
+    app.run = false;
+    window.resizedFinished = setTimeout(() => {
+        app.canvas.CELL_WIDTH =
+            app.canvas.canvasEl.offsetWidth / Game.BOARD_COLS;
+        app.canvas.CELL_HEIGHT =
+            app.canvas.canvasEl.offsetHeight / Game.BOARD_ROWS;
+        app.canvas.canvasEl.width = app.canvas.canvasEl.offsetWidth;
+        app.canvas.canvasEl.height = app.canvas.canvasEl.offsetWidth;
+        app.run = true;
+    }, 50);
 });
 
 export function initCanvas() {
