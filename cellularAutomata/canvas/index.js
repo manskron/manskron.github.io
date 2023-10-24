@@ -63,6 +63,9 @@ export const canvasResizeObserver = new ResizeObserver(() => {
 });
 
 export function initCanvas() {
+    app.canvas.BG_COLOR = "#eeeeee";
+    app.canvas.FILL_COLOR = "#202020";
+
     initCanvasContainer();
     initCanvasEl();
 }

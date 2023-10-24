@@ -34,12 +34,10 @@ export const app = {
 };
 
 window.app = app;
+
 app.run = true;
 
 app.tickLength = 1000 / 60;
-
-app.canvas.BG_COLOR = "#eeeeee";
-app.canvas.FILL_COLOR = "#202020";
 
 app.init = function init() {
     this.sim.initializeBoard(true);
