@@ -1,5 +1,4 @@
 export function drawCanvas(board) {
-    const sim = app.sim;
     const ctx = app.canvas.canvasEl.getContext("2d");
     let bodyEl = document.querySelector("body");
 
@@ -23,7 +22,7 @@ export function drawCanvas(board) {
     ctx.fillStyle = app.canvas.FILL_COLOR;
     board.forEach((row, rowIndex) => {
         row.forEach((_, colIndex) => {
-            if (app.sim.getCellState(rowIndex, colIndex) === 1) {
+            if (app.sim.getCell(rowIndex, colIndex) === 1) {
                 let x = colIndex * app.canvas.CELL_WIDTH;
                 let y = rowIndex * app.canvas.CELL_HEIGHT;
                 ctx.fillRect(

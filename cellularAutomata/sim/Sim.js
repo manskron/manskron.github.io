@@ -26,7 +26,7 @@ export class GameOfLife {
         this.board = tempBoard;
     }
 
-    getCellState(rowIndex, colIndex) {
+    getCell(rowIndex, colIndex) {
         if (rowIndex < 0) {
             return 0;
         }
@@ -45,19 +45,19 @@ export class GameOfLife {
 
     getNeighbourCount(rowIndex, colIndex) {
         let count =
-            this.getCellState(rowIndex - 1, colIndex - 1) +
-            this.getCellState(rowIndex - 1, colIndex) +
-            this.getCellState(rowIndex - 1, colIndex + 1) +
-            this.getCellState(rowIndex, colIndex - 1) +
-            this.getCellState(rowIndex, colIndex + 1) +
-            this.getCellState(rowIndex + 1, colIndex - 1) +
-            this.getCellState(rowIndex + 1, colIndex) +
-            this.getCellState(rowIndex + 1, colIndex + 1);
+            this.getCell(rowIndex - 1, colIndex - 1) +
+            this.getCell(rowIndex - 1, colIndex) +
+            this.getCell(rowIndex - 1, colIndex + 1) +
+            this.getCell(rowIndex, colIndex - 1) +
+            this.getCell(rowIndex, colIndex + 1) +
+            this.getCell(rowIndex + 1, colIndex - 1) +
+            this.getCell(rowIndex + 1, colIndex) +
+            this.getCell(rowIndex + 1, colIndex + 1);
 
         return count;
     }
 
-    createNewCell(cell, rowIndex, colIndex) {
+    getNextCellState(cell, rowIndex, colIndex) {
         let neighbourCount = this.getNeighbourCount(rowIndex, colIndex);
         if (cell === 1) {
             if (neighbourCount < 2 || neighbourCount > 3) {
@@ -75,7 +75,7 @@ export class GameOfLife {
         this.board.forEach((row, rowIndex) => {
             let newRow = [];
             row.forEach((cell, colIndex) => {
-                newRow.push(this.createNewCell(cell, rowIndex, colIndex));
+                newRow.push(this.getNextCellState(cell, rowIndex, colIndex));
             });
             newBoard.push(newRow);
         });
