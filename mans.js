@@ -1,5 +1,3 @@
-import "./cellularAutomata/index.js";
-
 function setupThemeButton() {
     const btn = document.getElementById("themeToggler");
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {

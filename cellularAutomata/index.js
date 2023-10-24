@@ -9,6 +9,8 @@
 //  [x] Remove cell shape option, it's stupid (for the
 //     moment at least).
 //
+//  [] Can we fix flickering on resize?
+//
 //  [] How do we add other cellular automata on top of GoL?
 //
 

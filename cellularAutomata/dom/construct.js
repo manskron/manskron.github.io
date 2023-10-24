@@ -4,6 +4,7 @@ export function constructDom() {
 
     const golContainer = document.createElement("fieldset");
     golContainer.setAttribute("id", "golContainer");
+    golContainer.style.fontFamily = "monospace";
     appEl.append(golContainer);
 
     const title = document.createElement("legend");
@@ -12,6 +13,7 @@ export function constructDom() {
 
     const canvas = document.createElement("canvas");
     canvas.setAttribute("id", "canvas");
+    canvas.style.width = "100%";
     golContainer.append(canvas);
 
     const stateContainer = document.createElement("fieldset");

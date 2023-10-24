@@ -38,11 +38,3 @@ body {
     justify-content: space-between;
     gap: 2rem;
 }
-
-#golContainer {
-    font-family: monospace;
-}
-
-#canvas {
-    width: 100%;
-}
