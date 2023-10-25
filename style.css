@@ -20,7 +20,8 @@ body.dark-theme {
     }
 }
 
-body {
+body,
+button {
     background: var(--bkg-color);
     color: var(--text-color);
     font-family: monospace;
@@ -28,8 +29,6 @@ body {
 
 #nav {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     margin-bottom: 1rem;
     gap: 0.5rem;
 }
