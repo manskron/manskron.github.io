@@ -6,6 +6,13 @@ function setupThemeButton() {
     const lightText = "☼";
 
     const currentTheme = localStorage.getItem("theme");
+
+    if (!currentTheme) {
+        btn.textContent = document.body.classList.contains("light-theme")
+            ? lightText
+            : lightText;
+    }
+
     if (currentTheme == "dark") {
         document.body.classList.toggle("dark-theme");
         btn.textContent = lightText;
