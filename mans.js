@@ -2,20 +2,23 @@ function setupThemeButton() {
     const btn = document.getElementById("themeToggler");
     const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
+    const darkText = "☾";
+    const lightText = "☼";
+
     const currentTheme = localStorage.getItem("theme");
     if (currentTheme == "dark") {
         document.body.classList.toggle("dark-theme");
-        btn.textContent = "light";
+        btn.textContent = lightText;
     } else if (currentTheme == "light") {
         document.body.classList.toggle("light-theme");
-        btn.textContent = "dark";
+        btn.textContent = darkText;
     }
 
     btn.addEventListener("click", function () {
-        if (btn.innerText === "light") {
-            btn.innerText = "dark";
+        if (btn.innerText == lightText) {
+            btn.innerText = darkText;
         } else {
-            btn.innerText = "light";
+            btn.innerText = lightText;
         }
 
         if (prefersDarkScheme.matches) {
