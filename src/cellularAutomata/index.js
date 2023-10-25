@@ -71,8 +71,6 @@ app.main = function main(tFrame) {
     }
 };
 
-window.addEventListener("DOMContentLoaded", () => {
-    constructDom();
-    app.init();
-    app.main(performance.now());
-});
+constructDom();
+app.init();
+app.main(performance.now());

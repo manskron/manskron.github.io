@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 
 <head>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../style.css" />
 
-    <script src="mans.js" defer type="module"></script>
+    <script src="../mans.js" defer type="module"></script>
+    <script src="../src/cellularAutomata/index.js" defer type="module"></script>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +14,7 @@
 
 <body>
     <header class="header">
-        <h1 id="title">/</h1>
+        <h1 id="title">/cells</h1>
         <button
             type="button"
             id="themeToggler"
@@ -21,13 +22,5 @@
         ></button>
     </header>
     <nav id="nav"></nav>
-    <main>
-        <p>Hello. My name is Måns Bülling and I am a developer. I like:</p>
-        <ul>
-            <li>making things</li>
-            <li>kindness</li>
-            <li>simplicity</li>
-            <li>technology</li>
-        </ul>
-    </main>
+    <div id="cells"></div>
 </body>
