@@ -46,15 +46,23 @@ function setupThemeButton() {
 function addNavLink(navEl, text, href) {
     const linkEl = document.createElement("a");
     linkEl.setAttribute("href", href);
-    linkEl.innerText = `[${text}]`;
+    linkEl.innerText = `${text}`;
+    linkEl.style.alignSelf = "start";
     navEl.appendChild(linkEl);
 }
 
 function setupNav() {
     const navEl = document.getElementById("nav");
+
     addNavLink(navEl, "Home", "/");
     addNavLink(navEl, "Cells", "/pages/cells.html");
     addNavLink(navEl, "Emacs config", "/pages/emacsconf.html");
+
+    navEl.querySelectorAll("a").forEach((el) => {
+        if (el.href == window.location.href) {
+            el.classList.add("active");
+        }
+    });
 }
 
 setupThemeButton();
