@@ -2,8 +2,8 @@ function setupThemeButton() {
     const btn = document.getElementById("themeToggler");
     const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
-    const darkText = "☾";
-    const lightText = "☼";
+    const darkText = "☾ Dark";
+    const lightText = "☼ Light";
 
     const currentTheme = localStorage.getItem("theme");
 
@@ -58,6 +58,12 @@ function setupNav() {
     addNavLink(navEl, "Cells", "/pages/cells.html");
     addNavLink(navEl, "Emacs config", "/pages/emacsconf.html");
 
+    const themeBtn = document.createElement("button");
+    themeBtn.setAttribute("type", "button");
+    themeBtn.setAttribute("id", "themeToggler");
+    themeBtn.setAttribute("aria-label", "Toggle theme");
+    navEl.appendChild(themeBtn);
+
     navEl.querySelectorAll("a").forEach((el) => {
         if (el.href == window.location.href) {
             el.classList.add("active");
@@ -65,5 +71,5 @@ function setupNav() {
     });
 }
 
-setupThemeButton();
 setupNav();
+setupThemeButton();
