@@ -2,15 +2,16 @@ body {
     --text-color: #222;
     --bkg-color: #eee;
     --footer-bkg-color: gainsboro;
-    --btn-text-color: #eee;
-    --accent1: tomato;
-    --accent2: slategray;
+    --btn-text-color: #222;
+    --accent1: darkslateblue;
+    --accent2: silver;
 }
 
 body.dark-theme {
     --text-color: #eee;
     --bkg-color: #121212;
-    --footer-bkg-color: dimgray;
+    --footer-bkg-color: #2e2e2e;
+    --accent1: lightsteelblue;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,12 +19,14 @@ body.dark-theme {
         --text-color: #222;
         --bkg-color: #eee;
         --footer-bkg-color: gainsboro;
+        --accent1: darkslateblue;
     }
 
     body {
         --text-color: #eee;
         --bkg-color: #121212;
-        --footer-bkg-color: dimgray;
+        --footer-bkg-color: #2e2e2e;
+        --accent1: lightsteelblue;
     }
 }
 

@@ -1,5 +1,6 @@
 export function $c(tagName, attributes, children) {
     const el = document.createElement(tagName);
+
     if (attributes !== undefined) {
         for (const [attribute, value] of Object.entries(attributes)) {
             if (attribute === "textContent") {
@@ -11,6 +12,7 @@ export function $c(tagName, attributes, children) {
             }
         }
     }
+
     if (children !== undefined) {
         children.map((c) => {
             el.appendChild(c);
