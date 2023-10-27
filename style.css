@@ -2,7 +2,7 @@ body {
     --text-color: #222;
     --bkg-color: #eee;
     --footer-bkg-color: gainsboro;
-    --link-color: tomato;
+    --accent1: tomato;
 }
 
 body.dark-theme {
@@ -57,7 +57,7 @@ footer {
     padding: 16px 16px;
     background-color: var(--footer-bkg-color);
     gap: 8px;
-    border-top: 2px solid var(--link-color);
+    border-top: 2px solid var(--accent1);
 }
 
 h1 {
@@ -66,16 +66,16 @@ h1 {
 
 a,
 a[href^="mailto:"] {
-    color: var(--link-color);
+    color: var(--accent1);
 }
 
 a.active {
     font-weight: bold;
-    color: var(--link-color);
+    color: var(--accent1);
 }
 
 a:visited {
-    color: var(--link-color);
+    color: var(--accent1);
 }
 
 body,
@@ -117,7 +117,7 @@ nav {
 #heading-line {
     display: block;
     width: 60px;
-    border-top: 2px solid var(--link-color);
+    border-top: 2px solid var(--accent1);
     transform: translateY(1px);
 }
 
