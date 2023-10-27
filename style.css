@@ -2,12 +2,6 @@ body {
     --text-color: #222;
     --bkg-color: #eee;
     --footer-bkg-color: #c6c6c6;
-
-    --purple: #e60059;
-    --red: #ff2e01;
-    --orange: #ffb00b;
-    --green: #55da02;
-    --blue: #0a00fb;
 }
 
 body.dark-theme {
@@ -51,7 +45,7 @@ header {
 
 main {
     flex: 1;
-    padding: 0 16px;
+    padding: 0 16px 16px;
 }
 
 footer {
@@ -60,6 +54,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    border-top: 2px solid tomato;
 }
 
 h1 {
@@ -68,15 +63,16 @@ h1 {
 
 a,
 a[href^="mailto:"] {
-    color: inherit;
+    color: tomato;
 }
 
 a.active {
     font-weight: bold;
+    color: tomato;
 }
 
 a:visited {
-    color: inherit;
+    color: tomato;
 }
 
 body,
@@ -120,37 +116,9 @@ nav {
     color: inherit;
 }
 
-#dots {
-    display: flex;
-    align-items: center;
-    margin-left: 3px;
+#heading-line {
+    display: block;
+    width: 60px;
+    border-top: 2px solid tomato;
     transform: translateY(1px);
-    filter: saturate(0.4);
-}
-
-.dot {
-    margin-left: -3px;
-    width: 16px;
-    height: 3px;
-    /* border-radius: 100%; */
-}
-
-.dot1 {
-    background-color: var(--purple);
-}
-
-.dot2 {
-    background-color: var(--red);
-}
-
-.dot3 {
-    background-color: var(--orange);
-}
-
-.dot4 {
-    background-color: var(--green);
-}
-
-.dot5 {
-    background-color: var(--blue);
 }
