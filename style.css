@@ -120,3 +120,12 @@ nav {
     border-top: 2px solid var(--link-color);
     transform: translateY(1px);
 }
+
+#footer-links {
+    display: flex;
+    gap: 0.5rem;
+}
+
+#footer-copyline {
+    font-size: 12px;
+}
