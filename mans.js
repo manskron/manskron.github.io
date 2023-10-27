@@ -2,8 +2,8 @@ function setupThemeButton() {
     const btn = document.getElementById("themeToggler");
     const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
-    const darkText = "☾ Dark";
-    const lightText = "☼ Light";
+    const darkText = "Dark";
+    const lightText = "Light";
 
     const currentTheme = localStorage.getItem("theme");
 

@@ -1,8 +1,14 @@
 body {
     --text-color: #222;
     --bkg-color: #eee;
-    --header-bkg-color: #86837d;
+    --header-bkg-color: #928374;
     --header-text-color: #eee;
+
+    --purple: #e60059;
+    --red: #ff2e01;
+    --orange: #ffb00b;
+    --green: #55da02;
+    --blue: #0a00fb;
 }
 
 body.dark-theme {
@@ -16,7 +22,7 @@ body.dark-theme {
     body.light-theme {
         --text-color: #222;
         --bkg-color: #eee;
-        --header-bkg-color: #86837d;
+        --header-bkg-color: #928374;
         --header-text-color: #eee;
     }
 
@@ -53,19 +59,17 @@ header {
 
 main {
     flex: 1;
-    background: var(--bkg-color);
-    color: var(--text-color);
     padding: 4px 16px;
 }
 
 footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 16px;
-    flex-wrap: wrap;
+    padding: 16px 16px;
     background-color: var(--header-bkg-color);
     color: var(--header-text-color);
+}
+
+footer > div {
+    margin-bottom: 8px;
 }
 
 h1 {
@@ -80,11 +84,19 @@ a:visited {
     color: inherit;
 }
 
+a[href^="mailto:"] {
+    color: inherit;
+}
+
 body,
 button {
     background: var(--bkg-color);
     color: var(--text-color);
     font-family: monospace;
+}
+
+button {
+    margin-top: -2px;
 }
 
 #nav-container {
@@ -95,7 +107,6 @@ button {
 nav {
     display: flex;
     gap: 0.5rem;
-    padding: 4px 16px;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -134,21 +145,21 @@ nav {
 }
 
 .dot1 {
-    background-color: #e60059;
+    background-color: var(--purple);
 }
 
 .dot2 {
-    background-color: #ff2e01;
+    background-color: var(--red);
 }
 
 .dot3 {
-    background-color: #ffb00b;
+    background-color: var(--orange);
 }
 
 .dot4 {
-    background-color: #55da02;
+    background-color: var(--green);
 }
 
 .dot5 {
-    background-color: #0a00fb;
+    background-color: var(--blue);
 }
