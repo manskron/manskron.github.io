@@ -43,9 +43,8 @@ body {
 
 header {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 16px;
     padding: 8px 16px;
     flex-wrap: wrap;
 }
