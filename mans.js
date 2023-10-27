@@ -1,5 +1,4 @@
-function setupThemeButton() {
-    const btn = document.getElementById("themeToggler");
+function setupThemeButton(btn) {
     const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
     const darkText = "Dark";
@@ -43,16 +42,14 @@ function setupThemeButton() {
     });
 }
 
-function addNavLink(navEl, text, href) {
-    const linkEl = document.createElement("a");
-    linkEl.setAttribute("href", href);
-    linkEl.innerText = `${text}`;
-    linkEl.style.alignSelf = "start";
-    navEl.appendChild(linkEl);
-}
-
-function setupNav() {
-    const navEl = document.getElementById("nav");
+function setupNav(navEl) {
+    function addNavLink(navEl, text, href) {
+        const linkEl = document.createElement("a");
+        linkEl.setAttribute("href", href);
+        linkEl.innerText = `${text}`;
+        linkEl.style.alignSelf = "start";
+        navEl.appendChild(linkEl);
+    }
 
     addNavLink(navEl, "Home", "/");
     addNavLink(navEl, "Cells", "/pages/cells.html");
@@ -63,6 +60,7 @@ function setupNav() {
     themeBtn.setAttribute("id", "themeToggler");
     themeBtn.setAttribute("aria-label", "Toggle theme");
     navEl.appendChild(themeBtn);
+    setupThemeButton(themeBtn);
 
     navEl.querySelectorAll("a").forEach((el) => {
         if (el.href == window.location.href) {
@@ -71,5 +69,21 @@ function setupNav() {
     });
 }
 
-setupNav();
-setupThemeButton();
+function setupHeader() {
+    const headingEl = document.createElement("a");
+    headingEl.setAttribute("id", "heading");
+    headingEl.setAttribute("href", "/");
+    headingEl.innerHTML = `
+        <span>måns</span>
+        <span id="heading-line"></span>
+        <span>computer</span>`;
+    const navEl = document.createElement("nav");
+
+    const headerEl = document.querySelector("header");
+    headerEl.appendChild(headingEl);
+    headerEl.appendChild(navEl);
+
+    setupNav(navEl);
+}
+
+setupHeader();

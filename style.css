@@ -1,27 +1,27 @@
 body {
     --text-color: #222;
     --bkg-color: #eee;
-    --footer-bkg-color: lightgray;
+    --footer-bkg-color: gainsboro;
     --link-color: tomato;
 }
 
 body.dark-theme {
     --text-color: #eee;
     --bkg-color: #121212;
-    --footer-bkg-color: gray;
+    --footer-bkg-color: dimgray;
 }
 
 @media (prefers-color-scheme: dark) {
     body.light-theme {
         --text-color: #222;
         --bkg-color: #eee;
-        --footer-bkg-color: lightgray;
+        --footer-bkg-color: gainsboro;
     }
 
     body {
         --text-color: #eee;
         --bkg-color: #121212;
-        --footer-bkg-color: gray;
+        --footer-bkg-color: dimgray;
     }
 }
 
@@ -57,7 +57,7 @@ footer {
     padding: 16px 16px;
     background-color: var(--footer-bkg-color);
     gap: 8px;
-    border-top: 2px solid tomato;
+    border-top: 2px solid var(--link-color);
 }
 
 h1 {
@@ -89,11 +89,6 @@ button {
     margin-top: -2px;
 }
 
-#nav-container {
-    display: flex;
-    justify-content: space-between;
-}
-
 nav {
     display: flex;
     gap: 0.5rem;
@@ -122,6 +117,6 @@ nav {
 #heading-line {
     display: block;
     width: 60px;
-    border-top: 2px solid tomato;
+    border-top: 2px solid var(--link-color);
     transform: translateY(1px);
 }
