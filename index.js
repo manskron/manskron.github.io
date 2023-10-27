@@ -86,4 +86,21 @@ function setupHeader() {
     setupNav(navEl);
 }
 
+function setupFooter() {
+    const footerEl = document.querySelector("footer");
+    footerEl.innerHTML = `
+    <div>
+        <a href="mailto:safe.key1974@fastmail.com">Email</a>
+        <a href="https://github.com/manskron">Github</a>
+        <a href="https://www.linkedin.com/in/mansbrusback/">LinkedIn</a>
+    </div>
+    <div>
+        <i style="font-size: 12px"
+            >Mans Comupter Systems Enterprise Ltd Corps.</i
+        >
+    </div>
+    `;
+}
+
 setupHeader();
+setupFooter();
