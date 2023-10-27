@@ -22,7 +22,7 @@ import {
     initCanvas,
     drawCanvas,
     canvasResizeObserver,
-} from "./canvas/index.js";
+} from "./canvas/canvas.js";
 
 export const app = {
     canvas: {},
