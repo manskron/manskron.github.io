@@ -1,26 +1,27 @@
 body {
     --text-color: #222;
     --bkg-color: #eee;
-    --footer-bkg-color: #c6c6c6;
+    --footer-bkg-color: lightgray;
+    --link-color: tomato;
 }
 
 body.dark-theme {
     --text-color: #eee;
     --bkg-color: #121212;
-    --footer-bkg-color: #2a2929;
+    --footer-bkg-color: gray;
 }
 
 @media (prefers-color-scheme: dark) {
     body.light-theme {
         --text-color: #222;
         --bkg-color: #eee;
-        --footer-bkg-color: #c6c6c6;
+        --footer-bkg-color: lightgray;
     }
 
     body {
         --text-color: #eee;
         --bkg-color: #121212;
-        --footer-bkg-color: #2a2929;
+        --footer-bkg-color: gray;
     }
 }
 
@@ -65,16 +66,16 @@ h1 {
 
 a,
 a[href^="mailto:"] {
-    color: tomato;
+    color: var(--link-color);
 }
 
 a.active {
     font-weight: bold;
-    color: tomato;
+    color: var(--link-color);
 }
 
 a:visited {
-    color: tomato;
+    color: var(--link-color);
 }
 
 body,
