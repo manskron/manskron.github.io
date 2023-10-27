@@ -7,6 +7,12 @@ const email_url = "mailto:safe.key1974@fastmail.com";
 const gh_url = "https://github.com/manskron";
 const linkedin_url = "https://www.linkedin.com/in/mansbrusback/";
 
+const pages = {
+    home: "/",
+    cells: "/pages/cells.html",
+    emacsConf: "/pages/emacsconf.html",
+};
+
 $a(header, [
     $c("a", { id: "heading", href: "/" }, [
         $c("span", { textContent: "måns" }),
@@ -14,9 +20,9 @@ $a(header, [
         $c("span", { textContent: "computer" }),
     ]),
     $c("nav", undefined, [
-        $c("a", { href: "/", textContent: "Home" }),
-        $c("a", { href: "/pages/cells.html", textContent: "Cells" }),
-        $c("a", { href: "/pages/emacsConf.html", textContent: "Emacs config" }),
+        $c("a", { href: pages.home, textContent: "Home" }),
+        $c("a", { href: pages.cells, textContent: "Cells" }),
+        $c("a", { href: pages.emacsConf, textContent: "Emacs config" }),
         $c("button", {
             type: "button",
             id: "themeToggler",
