@@ -38,6 +38,13 @@ body {
     flex-direction: column;
 }
 
+body,
+button {
+    background: var(--bkg-color);
+    color: var(--text-color);
+    font-family: monospace;
+}
+
 header {
     display: flex;
     flex-direction: column;
@@ -78,13 +85,6 @@ a.active {
 
 a:visited {
     color: var(--accent1);
-}
-
-body,
-button {
-    background: var(--bkg-color);
-    color: var(--text-color);
-    font-family: monospace;
 }
 
 button {
