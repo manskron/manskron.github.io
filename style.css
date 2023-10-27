@@ -2,7 +2,9 @@ body {
     --text-color: #222;
     --bkg-color: #eee;
     --footer-bkg-color: gainsboro;
+    --btn-text-color: #eee;
     --accent1: tomato;
+    --accent2: slategray;
 }
 
 body.dark-theme {
@@ -87,6 +89,8 @@ button {
 
 button {
     margin-top: 2px;
+    background-color: var(--accent2);
+    color: var(--btn-text-color);
 }
 
 nav {
