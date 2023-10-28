@@ -1,3 +1,43 @@
+@font-face {
+    font-family: "IBM Plex Mono";
+    font-style: normal;
+    font-weight: 400;
+    src: local("IBM Plex Mono"), local("IBMPlexMono"),
+        url("assets/IBMPlexMono-Regular-Latin1.woff2") format("woff2");
+    unicode-range: U+0000, U+000D, U+0020-007E, U+00A0-00FF, U+0131, U+0152-0153,
+        U+02C6, U+02DA, U+02DC, U+2013-2014, U+2018-201A, U+201C-201E,
+        U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+2122, U+2212,
+        U+FB01-FB02;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "IBM Plex Serif";
+    font-style: normal;
+    font-weight: 700;
+    src: local("IBM Plex Serif Bold"), local("IBMPlexSerif-Bold"),
+        url("assets/IBMPlexSerif-Bold-Latin1.woff2") format("woff2");
+    unicode-range: U+0000, U+000D, U+0020-007E, U+00A0-00FF, U+0131, U+0152-0153,
+        U+02C6, U+02DA, U+02DC, U+2013-2014, U+2018-201A, U+201C-201E,
+        U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+2122, U+2212,
+        U+FB01-FB02;
+    font-display: swap;
+}
+
+/* Subset: Latin1 */
+@font-face {
+    font-family: "IBM Plex Serif";
+    font-style: normal;
+    font-weight: 400;
+    src: local("IBM Plex Serif"), local("IBMPlexSerif-Regular"),
+        url("assets/IBMPlexSerif-Regular-Latin1.woff2") format("woff2");
+    unicode-range: U+0000, U+000D, U+0020-007E, U+00A0-00FF, U+0131, U+0152-0153,
+        U+02C6, U+02DA, U+02DC, U+2013-2014, U+2018-201A, U+201C-201E,
+        U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+2122, U+2212,
+        U+FB01-FB02;
+    font-display: swap;
+}
+
 body {
     --text-color: #393535;
     --bkg-color: #ede9dd;
@@ -39,7 +79,8 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    font-size: 16px;
+    font-family: "IBM Plex Serif", serif;
+    font-size: 14px;
 }
 
 body,
@@ -94,7 +135,7 @@ button {
     margin-top: 2px;
     background-color: var(--accent2);
     color: var(--btn-text-color);
-    font-family: monospace;
+    font-family: "IBM Plex Mono", monospace;
 }
 
 nav {
