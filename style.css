@@ -116,11 +116,6 @@ nav {
     fill: lightcoral;
 }
 
-#heading {
-    font-size: 20px;
-    text-decoration: none;
-}
-
 #footer-links {
     display: flex;
     gap: 0.5rem;
