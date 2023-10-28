@@ -115,6 +115,10 @@ nav {
     fill: var(--text-color);
 }
 
+#logo-link > svg > #circle {
+    fill: lightcoral;
+}
+
 #heading {
     font-size: 20px;
     text-decoration: none;
