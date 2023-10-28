@@ -1,0 +1,13 @@
+{
+    "name": "Sandachi",
+    "short_name": "Sandachi",
+    "icons": [
+        {
+            "src": "assets/google-touch-icon.png",
+            "sizes": "512x512"
+        }
+    ],
+    "background_color": "#ede9dd",
+    "theme_color": "#ede9dd",
+    "display": "fullscreen"
+}
