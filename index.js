@@ -53,7 +53,6 @@ $a(header, [
         $c("button", {
             type: "button",
             id: "themeToggler",
-            "aria-label": "Toggle theme",
         }),
     ]),
 ]);
