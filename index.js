@@ -17,10 +17,13 @@ const pages = {
 };
 
 $a(header, [
-    $c("a", { id: "heading", href: "/" }, [
-        $c("span", { textContent: "måns" }),
-        $c("span", { id: "heading-line" }),
-        $c("span", { textContent: "computer" }),
+    $c("a", { id: "logo", href: "/" }, [
+        $c("span", { id: "semi-circle" }),
+        $c("span", { id: "top-line1" }),
+        $c("span", { id: "top-line2" }),
+        $c("span", { id: "company-name", textContent: "SANDACHI" }),
+        $c("span", { id: "bottom-line" }),
+        $c("span", { id: "bottom-text", textContent: "Corp." }),
     ]),
     $c("nav", undefined, [
         $c("a", { href: pages.home, textContent: "Home" }),
@@ -41,7 +44,7 @@ $a(footer, [
         $c("a", { href: urls.linkedin, textContent: "LinkedIn" }),
     ]),
     $c("div", { id: "footer-copyline" }, [
-        $c("i", { textContent: "Mans Comupter Systems Enterprise Ltd Corps." }),
+        $c("i", { textContent: "© SANDACHI Corporation" }),
     ]),
 ]);
 
