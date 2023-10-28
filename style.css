@@ -83,6 +83,12 @@ body {
     font-size: 14px;
 }
 
+pre,
+code,
+button {
+    font-family: "IBM Plex Mono", monospace;
+}
+
 body,
 button {
     background: var(--bkg-color);
@@ -135,7 +141,6 @@ button {
     margin-top: 2px;
     background-color: var(--accent2);
     color: var(--btn-text-color);
-    font-family: "IBM Plex Mono", monospace;
 }
 
 nav {
