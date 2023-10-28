@@ -40,7 +40,12 @@ const logo = `
 `;
 
 $a(header, [
-    $c("a", { id: "logo-link", href: "/", innerHTML: logo }),
+    $c("a", {
+        id: "logo-link",
+        href: "/",
+        "aria-label": "Go to startpage",
+        innerHTML: logo,
+    }),
     $c("nav", undefined, [
         $c("a", { href: pages.home, textContent: "Home" }),
         $c("a", { href: pages.cells, textContent: "Cells" }),
