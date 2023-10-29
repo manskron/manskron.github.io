@@ -158,10 +158,6 @@ nav {
     fill: var(--text-color);
 }
 
-#logo-link > svg > #circle {
-    fill: lightcoral;
-}
-
 #footer-links {
     display: flex;
     gap: 0.5rem;
