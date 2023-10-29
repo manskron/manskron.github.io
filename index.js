@@ -64,7 +64,7 @@ $a(footer, [
         $c("a", { href: urls.linkedin, textContent: "LinkedIn" }),
     ]),
     $c("div", { id: "footer-copyline" }, [
-        $c("i", { textContent: "© SANDACHI Corporation" }),
+        $c("i", { textContent: "© 1978 SANDACHI Corporation" }),
     ]),
 ]);
 
