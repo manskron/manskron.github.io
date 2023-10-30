@@ -2,8 +2,7 @@ export function constructDom() {
     const appEl = document.getElementById("cells");
 
     appEl.innerHTML = `
-    <fieldset id="golContainer" style="font-family: monospace; max-width: 600px">
-        <legend>Game of life</legend>
+    <div id="golContainer" style="font-family: monospace; max-width: 600px">
         <canvas id="canvas" style="width: 100%"></canvas>
         <fieldset>
             <legend>State</legend>
