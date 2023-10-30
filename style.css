@@ -39,34 +39,30 @@
 }
 
 body {
-    --text-color: #393535;
-    --bkg-color: #ede9dd;
-    --footer-bkg-color: gainsboro;
-    --btn-text-color: #222;
-    --accent1: darkslateblue;
-    --accent2: silver;
+    --text-color: #464555;
+    --bkg-color: #f8f8ff;
+    --footer-bkg-color: #ededf3;
+    --btn-text-color: #333;
+    --link-color: #ffc45f;
 }
 
 body.dark-theme {
-    --text-color: #ede9dd;
-    --bkg-color: #393535;
-    --footer-bkg-color: #2e2e2e;
-    --accent1: lightsteelblue;
+    --text-color: #f8f8ff;
+    --bkg-color: #464555;
+    --footer-bkg-color: #777586;
 }
 
 @media (prefers-color-scheme: dark) {
     body.light-theme {
-        --text-color: #393535;
-        --bkg-color: #ede9dd;
-        --footer-bkg-color: gainsboro;
-        --accent1: darkslateblue;
+        --text-color: #464555;
+        --bkg-color: #f8f8ff;
+        --footer-bkg-color: #ededf3;
     }
 
     body {
-        --bkg-color: #393535;
-        --text-color: #ede9dd;
-        --footer-bkg-color: #2e2e2e;
-        --accent1: lightsteelblue;
+        --bkg-color: #464555;
+        --text-color: #f8f8ff;
+        --footer-bkg-color: #777586;
     }
 }
 
@@ -116,30 +112,18 @@ footer {
     padding: 16px 16px;
     background-color: var(--footer-bkg-color);
     gap: 8px;
-    border-top: 2px solid var(--accent1);
 }
 
 h1 {
     font-size: 20px;
 }
 
-a,
-a[href^="mailto:"] {
-    color: var(--accent1);
-}
-
 a.active {
     font-weight: bold;
-    color: var(--accent1);
-}
-
-a:visited {
-    color: var(--accent1);
 }
 
 button {
     margin-top: 2px;
-    background-color: var(--accent2);
     color: var(--btn-text-color);
 }
 
@@ -157,6 +141,10 @@ nav {
 #logo-link > svg > .text {
     fill: var(--text-color);
 }
+
+/* #logo-link > svg > #semicircle {
+    fill: #d0344a;
+} */
 
 #footer-links {
     display: flex;

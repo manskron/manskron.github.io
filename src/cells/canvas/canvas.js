@@ -43,10 +43,6 @@ function initCanvasContainer() {
     }
 }
 
-function initCanvasEl() {
-    app.canvas.canvasEl = document.getElementById("canvas");
-}
-
 export const canvasResizeObserver = new ResizeObserver(() => {
     clearTimeout(window.resizedFinished);
     app.run = false;
@@ -64,7 +60,7 @@ export const canvasResizeObserver = new ResizeObserver(() => {
 export function initCanvas() {
     app.canvas.BG_COLOR = "#eeeeee";
     app.canvas.FILL_COLOR = "#202020";
+    app.canvas.canvasEl = document.getElementById("canvas");
 
     initCanvasContainer();
-    initCanvasEl();
 }
