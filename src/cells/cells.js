@@ -14,7 +14,6 @@
 //  [] How do we add other cellular automata on top of GoL?
 //
 
-// @ts-check
 import { GameOfLife } from "./sim/Sim.js";
 import { initControls } from "./dom/controls.js";
 import { constructDom } from "./dom/construct.js";
@@ -27,7 +26,7 @@ import {
 export const app = {
     canvas: {},
     dom: {},
-    sim: new GameOfLife(300),
+    sim: new GameOfLife(100),
     setFps(fps) {
         this.tickLength = 1000 / parseInt(fps);
     },
@@ -37,7 +36,7 @@ window.app = app;
 
 app.run = true;
 
-app.tickLength = 1000 / 60;
+app.tickLength = 1000 / 20;
 
 app.init = function init() {
     this.sim.initializeBoard(true);
