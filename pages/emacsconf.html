@@ -2,6 +2,16 @@
 
 <html lang="en">
     <head>
+        <script defer>
+            fetch(
+                "https://raw.githubusercontent.com/manskron/modmacs/master/init.el"
+            )
+                .then((response) => response.text())
+                .then((text) => {
+                    let pre = document.getElementById("config");
+                    pre.innerHTML = text;
+                });
+        </script>
         <meta name="theme-color" content="#f7f7f7" />
         <link rel="icon" href="/assets/favicon.svg" />
         <link rel=”mask-icon” href=”/assets/favicon-masked.svg” color=”#f7f7f7">
@@ -11,7 +21,6 @@
         <link rel="stylesheet" href="/style.css" />
 
         <script src="/index.js" defer type="module"></script>
-        <script src="/pages/src/emacsconf.js" defer></script>
 
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
