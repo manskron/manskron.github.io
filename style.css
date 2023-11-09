@@ -12,20 +12,16 @@ body {
     --green: #008c5c;
     --yellow: #ffc45f;
     --white: #f8f8ff;
-    --light-gray: #ededf3;
-    --black: #464555;
-    --gray: #686677;
+    --black: #333;
 
     --text-color: var(--black);
     --bkg-color: var(--white);
-    --footer-bkg-color: var(--light-gray);
     --link-color: var(--blue);
 }
 
 body.dark-theme {
     --text-color: var(--white);
     --bkg-color: var(--black);
-    --footer-bkg-color: var(--gray);
     --link-color: var(--light-blue);
 }
 
@@ -33,14 +29,12 @@ body.dark-theme {
     body.light-theme {
         --text-color: var(--black);
         --bkg-color: var(--white);
-        --footer-bkg-color: var(--light-gray);
         --link-color: var(--blue);
     }
 
     body {
         --text-color: var(--white);
         --bkg-color: var(--black);
-        --footer-bkg-color: var(--gray);
         --link-color: var(--light-blue);
     }
 }
@@ -80,7 +74,6 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     padding: 16px 16px;
-    background-color: var(--footer-bkg-color);
     gap: 8px;
 }
 
