@@ -1,0 +1,24 @@
+#golContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#golContainer > canvas {
+    max-width: 100vh;
+}
+
+#golContainer > #controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.controlGroup {
+    font-size: 14px;
+}
+
+#pause {
+    width: 28px;
+    height: 28px;
+}

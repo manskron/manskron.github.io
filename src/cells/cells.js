@@ -14,14 +14,9 @@
 //  [] How do we add other cellular automata on top of GoL?
 //
 
-import { GameOfLife } from "./sim/Sim.js";
-import { initControls } from "./dom/controls.js";
-import { constructDom } from "./dom/construct.js";
-import {
-    initCanvas,
-    drawCanvas,
-    canvasResizeObserver,
-} from "./canvas/canvas.js";
+import { GameOfLife } from "./Sim.js";
+import { initControls } from "./controls.js";
+import { initCanvas, drawCanvas, canvasResizeObserver } from "./canvas.js";
 
 export const app = {
     canvas: {},
@@ -70,6 +65,5 @@ app.main = function main(tFrame) {
     }
 };
 
-constructDom();
 app.init();
 app.main(performance.now());

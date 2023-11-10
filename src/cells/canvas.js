@@ -36,13 +36,6 @@ export function drawCanvas(board) {
     });
 }
 
-function initCanvasContainer() {
-    const containerEl = document.getElementById("golContainer");
-    if (containerEl) {
-        containerEl.style.maxWidth = `600px`;
-    }
-}
-
 export const canvasResizeObserver = new ResizeObserver(() => {
     clearTimeout(window.resizedFinished);
     app.run = false;
@@ -61,6 +54,4 @@ export function initCanvas() {
     app.canvas.BG_COLOR = "#eeeeee";
     app.canvas.FILL_COLOR = "#202020";
     app.canvas.canvasEl = document.getElementById("canvas");
-
-    initCanvasContainer();
 }

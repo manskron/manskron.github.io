@@ -9,6 +9,7 @@
         <link rel="manifest" href="/manifest.json" />
 
         <link rel="stylesheet" href="/style.css" />
+        <link rel="stylesheet" href="/pages/cells.css" />
 
         <script src="/index.js" defer type="module"></script>
         <script src="/src/cells/cells.js" defer type="module"></script>
@@ -22,7 +23,44 @@
     <body>
         <header></header>
         <main>
-            <div id="cells"></div>
+            <div id="cells">
+                <div id="golContainer">
+                    <div id="controls">
+                        <button id="pause" type="button">⏸</button>
+                        <button id="restart" type="button">Restart</button>
+                        <div class="controlGroup">
+                            <label for="fpsInput"
+                                >FPS (<span id="fpsCount">60</span>)</label
+                            >
+                            <div>
+                                <input
+                                    id="fpsInput"
+                                    type="range"
+                                    min="0"
+                                    max="120"
+                                    value="15"
+                                />
+                            </div>
+                        </div>
+                        <div class="controlGroup">
+                            <label for="cellCountInput"
+                                >Resolution (<span id="cellCount">90000</span
+                                >)</label
+                            >
+                            <div>
+                                <input
+                                    id="cellCountInput"
+                                    type="range"
+                                    min="10"
+                                    max="400"
+                                    value="100"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <canvas id="canvas"></canvas>
+                </div>
+            </div>
         </main>
         <footer></footer>
     </body>
