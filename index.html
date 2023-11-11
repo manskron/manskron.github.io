@@ -17,7 +17,15 @@
             crossorigin
         />
 
-        <meta name="theme-color" content="#f7f7f7" />
+        <link rel="preload" href="/css/site.css" as="style" />
+        <link rel="preload" href="/css/normalize.css" as="style" />
+
+        <link rel="modulepreload" href="/js/site.js" />
+        <link rel="modulepreload" href="/js/cells/cells.js" />
+        <link rel="modulepreload" href="/js/cells/canvas.js" />
+        <link rel="modulepreload" href="/js/cells/controls.js" />
+        <link rel="modulepreload" href="/js/cells/Sim.js" />
+
         <link rel="icon" href="/assets/favicon.svg" />
         <link rel=”mask-icon” href=”/assets/favicon-masked.svg” color=”#f7f7f7">
         <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -29,14 +37,9 @@
         <link rel="prefetch" href="/pages/cells/" />
         <link rel="prefetch" href="/pages/emacsconf/" />
 
-        <link rel="modulepreload" href="/js/site.js" />
-        <link rel="modulepreload" href="/js/cells/cells.js" />
-        <link rel="modulepreload" href="/js/cells/canvas.js" />
-        <link rel="modulepreload" href="/js/cells/controls.js" />
-        <link rel="modulepreload" href="/js/cells/Sim.js" />
-
         <script src="/js/site.js" defer type="module"></script>
 
+        <meta name="theme-color" content="#f7f7f7" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="color-scheme" content="dark light" />
