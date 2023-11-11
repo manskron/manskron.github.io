@@ -7,6 +7,10 @@ export function $c(tagName, attributes, children) {
                 el.textContent = value;
             } else if (attribute === "innerHTML") {
                 el.innerHTML = value;
+            } else if (attribute === "classList") {
+                value.forEach((className) => {
+                    el.classList.add(className);
+                });
             } else {
                 el.setAttribute(attribute, value);
             }
@@ -26,62 +30,6 @@ export function $a(el, children) {
     children.map((child) => {
         el.appendChild(child);
     });
-}
-
-export function setupThemeButton() {
-    const btn = document.getElementById("themeToggler");
-    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-
-    const darkText = "Dark";
-    const lightText = "Light";
-
-    const currentTheme = localStorage.getItem("theme");
-
-    if (!currentTheme) {
-        btn.textContent = document.body.classList.contains("light-theme")
-            ? lightText
-            : lightText;
-    }
-
-    if (currentTheme == "dark") {
-        document.body.classList.toggle("dark-theme");
-        btn.textContent = lightText;
-    } else if (currentTheme == "light") {
-        document.body.classList.toggle("light-theme");
-        btn.textContent = darkText;
-    }
-
-    btn.addEventListener("click", function () {
-        if (btn.innerText == lightText) {
-            btn.innerText = darkText;
-        } else {
-            btn.innerText = lightText;
-        }
-
-        if (prefersDarkScheme.matches) {
-            document.body.classList.toggle("light-theme");
-            var theme = document.body.classList.contains("light-theme")
-                ? "light"
-                : "dark";
-        } else {
-            document.body.classList.toggle("dark-theme");
-            var theme = document.body.classList.contains("dark-theme")
-                ? "dark"
-                : "light";
-        }
-        localStorage.setItem("theme", theme);
-    });
-}
-
-export function setupNav() {
-    document
-        .querySelector("nav")
-        .querySelectorAll("a")
-        .forEach((el) => {
-            if (el.href == window.location.href) {
-                el.classList.add("active");
-            }
-        });
 }
 
 const header = document.querySelector("header");
@@ -109,22 +57,30 @@ const logo = `
 
 `;
 
+const menuIcon = `
+<svg xmlns="http://www.w3.org/2000/svg" fill="#f00000" viewBox="0 0 256 256"><path d="M222,128a6,6,0,0,1-6,6H40a6,6,0,0,1,0-12H216A6,6,0,0,1,222,128ZM40,70H216a6,6,0,0,0,0-12H40a6,6,0,0,0,0,12ZM216,186H40a6,6,0,0,0,0,12H216a6,6,0,0,0,0-12Z"></path></svg>
+`;
+
+const lightIcon = `
+<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="#f00000" viewBox="0 0 256 256"><path d="M122,40V16a6,6,0,0,1,12,0V40a6,6,0,0,1-12,0Zm68,88a62,62,0,1,1-62-62A62.07,62.07,0,0,1,190,128Zm-12,0a50,50,0,1,0-50,50A50.06,50.06,0,0,0,178,128ZM59.76,68.24a6,6,0,1,0,8.48-8.48l-16-16a6,6,0,0,0-8.48,8.48Zm0,119.52-16,16a6,6,0,1,0,8.48,8.48l16-16a6,6,0,1,0-8.48-8.48ZM192,70a6,6,0,0,0,4.24-1.76l16-16a6,6,0,0,0-8.48-8.48l-16,16A6,6,0,0,0,192,70Zm4.24,117.76a6,6,0,0,0-8.48,8.48l16,16a6,6,0,0,0,8.48-8.48ZM46,128a6,6,0,0,0-6-6H16a6,6,0,0,0,0,12H40A6,6,0,0,0,46,128Zm82,82a6,6,0,0,0-6,6v24a6,6,0,0,0,12,0V216A6,6,0,0,0,128,210Zm112-88H216a6,6,0,0,0,0,12h24a6,6,0,0,0,0-12Z"></path></svg>
+`;
+
+const darkIcon = `
+<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="#f00000" viewBox="0 0 256 256"><path d="M232.13,143.64a6,6,0,0,0-6-1.49A90.07,90.07,0,0,1,113.86,29.85a6,6,0,0,0-7.49-7.48A102.88,102.88,0,0,0,54.48,58.68,102,102,0,0,0,197.32,201.52a102.88,102.88,0,0,0,36.31-51.89A6,6,0,0,0,232.13,143.64Zm-42,48.29a90,90,0,0,1-126-126A90.9,90.9,0,0,1,99.65,37.66,102.06,102.06,0,0,0,218.34,156.35,90.9,90.9,0,0,1,190.1,191.93Z"></path></svg>
+`;
+
 $a(header, [
+    $c("button", { innerHTML: menuIcon, id: "menu-button" }),
     $c("a", {
         id: "logo-link",
         href: "/",
         "aria-label": "Go to startpage",
         innerHTML: logo,
     }),
-    $c("nav", undefined, [
-        $c("a", { href: pages.home, textContent: "Home" }),
-        $c("a", { href: pages.cells, textContent: "Cells" }),
-        $c("a", { href: pages.emacsConf, textContent: "Emacs config" }),
-        $c("button", {
-            type: "button",
-            id: "themeToggler",
-        }),
-    ]),
+    $c("button", {
+        type: "button",
+        id: "theme-button",
+    }),
 ]);
 
 $a(footer, [
@@ -138,5 +94,64 @@ $a(footer, [
     ]),
 ]);
 
-setupNav();
-setupThemeButton();
+(function setupThemeButton() {
+    const btn = document.getElementById("theme-button");
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+    const currentTheme = localStorage.getItem("theme");
+
+    if (!currentTheme) {
+        btn.innerHTML = document.body.classList.contains("light-theme")
+            ? lightIcon
+            : lightIcon;
+    }
+
+    if (currentTheme == "dark") {
+        document.body.classList.toggle("dark-theme");
+        btn.innerHTML = lightIcon;
+    } else if (currentTheme == "light") {
+        document.body.classList.toggle("light-theme");
+        btn.innerHTML = darkIcon;
+    }
+
+    btn.addEventListener("click", function () {
+        if (btn.innerHTML == lightIcon) {
+            btn.innerHTML = darkIcon;
+        } else {
+            btn.innerHTML = lightIcon;
+        }
+
+        if (prefersDarkScheme.matches) {
+            document.body.classList.toggle("light-theme");
+            var theme = document.body.classList.contains("light-theme")
+                ? "light"
+                : "dark";
+        } else {
+            document.body.classList.toggle("dark-theme");
+            var theme = document.body.classList.contains("dark-theme")
+                ? "dark"
+                : "light";
+        }
+        localStorage.setItem("theme", theme);
+    });
+})();
+
+(function setupMenuButton() {
+    const btn = document.getElementById("menu-button");
+    const menuContainer = document.getElementById("menu-container");
+
+    btn.addEventListener("click", () => {
+        menuContainer.classList.toggle("visible");
+        console.log("clicked menu button");
+    });
+})();
+
+(function setupMenuCloseButton() {
+    const btn = document.getElementById("menu-close-button");
+    const menuContainer = document.getElementById("menu-container");
+
+    btn.addEventListener("click", () => {
+        menuContainer.classList.toggle("visible");
+        console.log("clicked menu button");
+    });
+})();
