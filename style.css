@@ -98,6 +98,7 @@ button {
 }
 
 header {
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -116,6 +117,7 @@ nav {
 
 #logo-link > svg {
     width: 120px;
+    margin-bottom: -10px;
 }
 
 #logo-link > svg > .text {
@@ -163,7 +165,7 @@ nav {
 
 #menu-close-button {
     position: absolute;
-    top: 30px;
+    top: 35px;
     left: 16px;
     background-color: transparent;
     transition: transform 0.2s ease-out;
