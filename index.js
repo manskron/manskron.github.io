@@ -168,6 +168,8 @@ $a(menu, [
     btn.addEventListener("click", () => {
         menuContainer.classList.toggle("menu-open");
         mainEl.classList.toggle("menu-open");
-        console.log("clicked menu button");
+        btn.innerHTML = menuContainer.classList.contains("menu-open")
+            ? xIcon
+            : menuIcon;
     });
 })();

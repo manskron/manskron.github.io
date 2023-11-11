@@ -101,7 +101,8 @@ header {
     gap: 16px;
     padding: 16px 16px;
     flex-wrap: wrap;
-    margin-bottom: 16px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--text-color);
 }
 
 nav {
@@ -113,7 +114,6 @@ nav {
 
 #logo-link > svg {
     width: 110px;
-    margin-bottom: -10px;
 }
 
 #logo-link > svg > .text {
