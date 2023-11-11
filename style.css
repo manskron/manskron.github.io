@@ -126,6 +126,12 @@ nav {
 #theme-button {
     border: 0;
     background-color: var(--bkg-color);
+    transition: transform 0.2s ease-out;
+}
+
+#menu-button:hover,
+#theme-button:hover {
+    transform: scale(1.1);
 }
 
 #menu-button > svg,
@@ -160,7 +166,7 @@ nav {
     top: 30px;
     left: 16px;
     background-color: transparent;
-    transition: all 0.2s ease-out;
+    transition: transform 0.2s ease-out;
 }
 
 #menu-close-button:hover {
@@ -187,7 +193,7 @@ nav {
     font-size: xx-large;
     font-weight: 700;
     text-decoration: none;
-    transition: all 0.2s ease-out;
+    transition: transform 0.2s ease-out;
 }
 
 .menu-item {
