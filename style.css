@@ -28,6 +28,10 @@ html {
     color-scheme: dark light;
 }
 
+button {
+    cursor: pointer;
+}
+
 img,
 picture,
 svg,
@@ -101,12 +105,12 @@ nav {
 #theme-button {
     border: 0;
     background-color: var(--bkg-color);
-    transition: transform 0.2s ease-out;
+    transition: transform 0.3s ease-out;
 }
 
 #menu-button:hover,
 #theme-button:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 #menu-button > svg,
