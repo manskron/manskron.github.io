@@ -47,7 +47,7 @@ code {
         "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 }
 
-/* Theme setup */
+/* Theme setup ---------------------- */
 
 body {
     --text-color: var(--black);
@@ -71,7 +71,7 @@ body.dark-theme {
     }
 }
 
-/* Styles */
+/* Styles -------------------------------------- */
 
 body {
     background: var(--bkg-color);
@@ -225,4 +225,38 @@ button {
 
 #footer-copyline {
     font-size: 12px;
+}
+
+/* Cells ---------------------------------------- */
+
+#cells {
+    width: 70vh;
+}
+
+@media (max-width: 768px) {
+    #cells {
+        width: 100%;
+    }
+}
+
+#gol-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#gol-container > #controls {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.controlGroup {
+    font-size: 14px;
+}
+
+#pause {
+    width: 28px;
+    height: 28px;
 }

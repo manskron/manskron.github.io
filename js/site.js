@@ -101,12 +101,12 @@ $a(menu, [
             classList: ["menu-item"],
         }),
         $c("a", {
-            href: "/pages/cells.html",
+            href: "/pages/cells",
             textContent: "Cells",
             classList: ["menu-item"],
         }),
         $c("a", {
-            href: "/pages/emacsconf.html",
+            href: "/pages/emacsconf",
             textContent: "Emacs config",
             classList: ["menu-item"],
         }),
