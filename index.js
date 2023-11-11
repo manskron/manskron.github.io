@@ -33,7 +33,7 @@ export function $a(el, children) {
 }
 
 const header = document.querySelector("header");
-const menu = document.querySelector("#menu-container");
+const menu = document.querySelector("#menu");
 
 const urls = {
     email: "mailto:safe.key1974@fastmail.com",
@@ -97,24 +97,45 @@ $a(header, [
 ]);
 
 $a(menu, [
-    $c("div", { id: "menu" }, [
-        $c("nav", { id: "menu-items" }, [
-            $c("a", {
-                href: "/",
-                textContent: "Home",
-                classList: ["menu-item"],
-            }),
-            $c("a", {
-                href: "/pages/cells.html",
-                textContent: "Cells",
-                classList: ["menu-item"],
-            }),
-            $c("a", {
-                href: "/pages/emacsconf.html",
-                textContent: "Emacs config",
-                classList: ["menu-item"],
-            }),
-        ]),
+    $c("nav", { id: "menu-items" }, [
+        $c("a", {
+            href: "/",
+            textContent: "Home",
+            classList: ["menu-item"],
+        }),
+        $c("a", {
+            href: "/pages/cells.html",
+            textContent: "Cells",
+            classList: ["menu-item"],
+        }),
+        $c("a", {
+            href: "/pages/emacsconf.html",
+            textContent: "Emacs config",
+            classList: ["menu-item"],
+        }),
+        $c(
+            "div",
+            {
+                classList: ["sub-menu-items"],
+            },
+            [
+                $c("a", {
+                    href: urls.github,
+                    textContent: "Github",
+                    classList: ["sub-menu-item"],
+                }),
+                $c("a", {
+                    href: urls.linkedin,
+                    textContent: "LinkedIn",
+                    classList: ["sub-menu-item"],
+                }),
+                $c("a", {
+                    href: urls.email,
+                    textContent: "Email",
+                    classList: ["sub-menu-item"],
+                }),
+            ]
+        ),
     ]),
 ]);
 
@@ -163,13 +184,11 @@ $a(menu, [
 (function setupMenuButton() {
     const btn = document.getElementById("menu-button");
     const mainEl = document.querySelector("main");
-    const menuContainer = document.getElementById("menu-container");
+    const menu = document.getElementById("menu");
 
     btn.addEventListener("click", () => {
-        menuContainer.classList.toggle("menu-open");
+        menu.classList.toggle("menu-open");
         mainEl.classList.toggle("menu-open");
-        btn.innerHTML = menuContainer.classList.contains("menu-open")
-            ? xIcon
-            : menuIcon;
+        btn.innerHTML = menu.classList.contains("menu-open") ? xIcon : menuIcon;
     });
 })();
