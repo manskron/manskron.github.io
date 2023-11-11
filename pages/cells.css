@@ -1,3 +1,13 @@
+#cells {
+    width: 70vh;
+}
+
+@media (max-width: 768px) {
+    #cells {
+        width: 100%;
+    }
+}
+
 #gol-container {
     display: flex;
     flex-direction: column;

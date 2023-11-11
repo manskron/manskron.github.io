@@ -47,6 +47,8 @@ code {
         "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 }
 
+/* Theme setup */
+
 body {
     --text-color: var(--black);
     --bkg-color: var(--white);
@@ -69,9 +71,9 @@ body.dark-theme {
     }
 }
 
+/* Styles */
+
 body {
-    display: flex;
-    flex-direction: column;
     background: var(--bkg-color);
     color: var(--text-color);
 }
@@ -182,9 +184,9 @@ nav {
 }
 
 main {
-    flex: 1;
     padding: 0 16px 32px;
-    display: block;
+    display: flex;
+    justify-content: center;
 }
 
 main.menu-open {
