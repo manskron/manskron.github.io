@@ -1,4 +1,4 @@
-//  @TODOS ----------------------------------------------
+//  @TODO ----------------------------------------------
 //
 //  [x] Set up all DOM elements through functions instead
 //     of having to write all the HTML wherever you want
