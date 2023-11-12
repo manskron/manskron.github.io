@@ -173,6 +173,7 @@ nav {
 #menu {
     display: none;
     background-color: var(--bkg-color);
+    padding-bottom: 64px;
 }
 
 #menu.menu-open {
