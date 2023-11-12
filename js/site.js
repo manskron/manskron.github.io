@@ -156,26 +156,28 @@ $a(menu, [
         btn.innerHTML = darkIcon;
     }
 
-    btn.addEventListener("click", function () {
-        if (btn.innerHTML == lightIcon) {
-            btn.innerHTML = darkIcon;
-        } else {
-            btn.innerHTML = lightIcon;
-        }
+    if (btn) {
+        btn.addEventListener("click", function () {
+            if (btn.innerHTML == lightIcon) {
+                btn.innerHTML = darkIcon;
+            } else {
+                btn.innerHTML = lightIcon;
+            }
 
-        if (prefersDarkScheme.matches) {
-            document.body.classList.toggle("light-theme");
-            var theme = document.body.classList.contains("light-theme")
-                ? "light"
-                : "dark";
-        } else {
-            document.body.classList.toggle("dark-theme");
-            var theme = document.body.classList.contains("dark-theme")
-                ? "dark"
-                : "light";
-        }
-        localStorage.setItem("theme", theme);
-    });
+            if (prefersDarkScheme.matches) {
+                document.body.classList.toggle("light-theme");
+                var theme = document.body.classList.contains("light-theme")
+                    ? "light"
+                    : "dark";
+            } else {
+                document.body.classList.toggle("dark-theme");
+                var theme = document.body.classList.contains("dark-theme")
+                    ? "dark"
+                    : "light";
+            }
+            localStorage.setItem("theme", theme);
+        });
+    }
 })();
 
 (function setupMenuButton() {

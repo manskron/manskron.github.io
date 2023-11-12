@@ -132,6 +132,15 @@ body {
     color: var(--text-color);
 }
 
+#landing-logo {
+    width: 300px;
+    margin: 30px auto 44px auto;
+}
+
+#landing-logo > .text {
+    fill: var(--text-color);
+}
+
 header {
     display: flex;
     align-items: center;
