@@ -27,10 +27,7 @@
         <link rel="preload" href="/css/site.css" as="style" />
 
         <link rel="modulepreload" href="/js/site.js" />
-        <link rel="modulepreload" href="/js/cells/canvas.js" />
-        <link rel="modulepreload" href="/js/cells/cells.js" />
-        <link rel="modulepreload" href="/js/cells/controls.js" />
-        <link rel="modulepreload" href="/js/cells/Sim.js" />
+        <link rel="modulepreload" href="/js/cells/cellular-automata.js" />
 
         <link rel="icon" href="/assets/favicon.svg" />
         <link
@@ -44,7 +41,7 @@
         <link rel="stylesheet" href="/css/site.css" />
 
         <script src="/js/site.js" defer type="module"></script>
-        <script src="/js/cells/cells.js" defer type="module"></script>
+        <script src="/js/cells/cellular-automata.js" defer type="module"></script>
 
         <meta name="theme-color" content="#f7f7f7" />
         <meta charset="UTF-8" />
@@ -57,44 +54,7 @@
         <header></header>
         <div id="menu"></div>
         <main>
-            <div id="cells">
-                <div id="gol-container">
-                    <div id="controls">
-                        <button id="pause" type="button">⏸</button>
-                        <button id="restart" type="button">Restart</button>
-                        <div class="controlGroup">
-                            <label for="fpsInput"
-                                >FPS (<span id="fpsCount">60</span>)</label
-                            >
-                            <div>
-                                <input
-                                    id="fpsInput"
-                                    type="range"
-                                    min="0"
-                                    max="120"
-                                    value="15"
-                                />
-                            </div>
-                        </div>
-                        <div class="controlGroup">
-                            <label for="cellCountInput"
-                                >Resolution (<span id="cellCount">90000</span
-                                >)</label
-                            >
-                            <div>
-                                <input
-                                    id="cellCountInput"
-                                    type="range"
-                                    min="10"
-                                    max="400"
-                                    value="100"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <canvas id="canvas"></canvas>
-                </div>
-            </div>
+            <cellular-automata>
         </main>
         <footer></footer>
     </body>
