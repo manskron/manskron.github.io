@@ -86,7 +86,7 @@ class CellularAutomata extends HTMLElement {
     static tagName = "cellular-automata";
 
     static style = `
-#canvas {
+:host {
     width: 100%;
 }
 
@@ -94,7 +94,6 @@ class CellularAutomata extends HTMLElement {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    width: 100%;
 }
 
 #controls {
