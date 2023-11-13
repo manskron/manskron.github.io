@@ -134,7 +134,7 @@ class CellularAutomata extends HTMLElement {
                         <button id="restart-button" type="button">Restart</button>
                         <div class="controlGroup">
                             <label for="fps-input"
-                                >FPS (<span id="fps-display">60</span>)</label
+                                >FPS (<span id="fps-display">30</span>)</label
                             >
                             <div>
                                 <input
@@ -142,7 +142,7 @@ class CellularAutomata extends HTMLElement {
                                     type="range"
                                     min="0"
                                     max="120"
-                                    value="15"
+                                    value="30"
                                 />
                             </div>
                         </div>
@@ -171,14 +171,14 @@ class CellularAutomata extends HTMLElement {
         let cellCountInput = this.shadowRoot.getElementById("cell-count-input");
         let cellCountDisplay =
             this.shadowRoot.getElementById("cell-count-display");
-        let fpsDisplay = this.shadowRoot.getElementById("fps-display");
         let fpsInput = this.shadowRoot.getElementById("fps-input");
+        let fpsDisplay = this.shadowRoot.getElementById("fps-display");
         let pauseButton = this.shadowRoot.getElementById("pause-button");
         let restartButton = this.shadowRoot.getElementById("restart-button");
 
         let sim = new GameOfLife(100);
 
-        let tickLength = 1000 / 20;
+        let tickLength = 1000 / 30;
 
         function setFps(fps) {
             tickLength = 1000 / parseInt(fps);
