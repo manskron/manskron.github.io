@@ -107,10 +107,6 @@ class CellularAutomata extends HTMLElement {
     font-size: 14px;
 }
 
-#pause-button {
-    width: 28px;
-    height: 28px;
-}
     `;
 
     connectedCallback() {
