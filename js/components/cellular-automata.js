@@ -122,43 +122,42 @@ class CellularAutomata extends HTMLElement {
 
         let template = document.createElement("template");
 
-        template.innerHTML = `
-                <div id="container">
-                    <div id="controls">
-                        <button id="pause-button" type="button">⏸</button>
-                        <button id="restart-button" type="button">Restart</button>
-                        <div class="controlGroup">
-                            <label for="fps-input"
-                                >FPS (<span id="fps-display">30</span>)</label
-                            >
-                            <div>
-                                <input
-                                    id="fps-input"
-                                    type="range"
-                                    min="0"
-                                    max="120"
-                                    value="30"
-                                />
-                            </div>
-                        </div>
-                        <div class="controlGroup">
-                            <label for="cell-count-input"
-                                >Resolution (<span id="cell-count-display">90000</span
-                                >)</label
-                            >
-                            <div>
-                                <input
-                                    id="cell-count-input"
-                                    type="range"
-                                    min="10"
-                                    max="400"
-                                    value="100"
-                                />
-                            </div>
-                        </div>
+        template.innerHTML = `<div id="container">
+            <div id="controls">
+                <button id="pause-button" type="button">⏸</button>
+                <button id="restart-button" type="button">Restart</button>
+                <div class="controlGroup">
+                    <label for="fps-input"
+                        >FPS (<span id="fps-display">30</span>)</label
+                    >
+                    <div>
+                        <input
+                            id="fps-input"
+                            type="range"
+                            min="0"
+                            max="120"
+                            value="30"
+                        />
                     </div>
-                    <canvas id="canvas"></canvas>
-                </div>`;
+                </div>
+                <div class="controlGroup">
+                    <label for="cell-count-input"
+                        >Resolution (<span id="cell-count-display">90000</span
+                        >)</label
+                    >
+                    <div>
+                        <input
+                            id="cell-count-input"
+                            type="range"
+                            min="10"
+                            max="400"
+                            value="100"
+                        />
+                    </div>
+                </div>
+            </div>
+            <canvas id="canvas"></canvas>
+        </div>`;
 
         shadowroot.appendChild(template.content.cloneNode(true));
 
@@ -255,8 +254,8 @@ class CellularAutomata extends HTMLElement {
                 document.querySelector("body")
             );
 
-            let FILL_COLOR = bodyStyles.getPropertyValue("background-color");
-            let BG_COLOR = bodyStyles.getPropertyValue("color");
+            let BG_COLOR = bodyStyles.getPropertyValue("background-color");
+            let FILL_COLOR = bodyStyles.getPropertyValue("color");
 
             ctx.fillStyle = BG_COLOR;
             ctx.fillRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
