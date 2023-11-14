@@ -84,6 +84,7 @@ $a(header, [
         innerHTML: menuIcon,
         id: "menu-button",
         "aria-label": "Open menu",
+        classList: ["header-button"],
     }),
     $c("a", {
         id: "logo-link",
@@ -95,11 +96,12 @@ $a(header, [
         type: "button",
         id: "theme-button",
         "aria-label": "Toggle theme",
+        classList: ["header-button"],
     }),
 ]);
 
 $a(menu, [
-    $c("nav", { id: "menu-items" }, [
+    $c("nav", { classList: ["menu-items"] }, [
         $c("a", {
             href: "/",
             textContent: "Home",

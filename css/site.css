@@ -67,41 +67,6 @@
     --dark-gray: #686677;
 }
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-* {
-    margin: 0;
-    font: inherit;
-}
-
-html {
-    color-scheme: dark light;
-}
-
-button {
-    cursor: pointer;
-}
-
-img,
-picture,
-svg,
-video {
-    display: block;
-    max-width: 100%;
-}
-
-pre,
-code {
-    /* font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-        "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-        "Fira Mono", "Droid Sans Mono", "Courier New", monospace; */
-    font-family: "IBM Plex Mono";
-}
-
 /* Theme setup ---------------------- */
 
 body {
@@ -126,13 +91,59 @@ body.dark-theme {
     }
 }
 
-/* Styles -------------------------------------- */
+/* Base styles */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    font: inherit;
+}
+
+html {
+    color-scheme: dark light;
+}
 
 body {
     background: var(--bkg-color);
     color: var(--text-color);
     padding-bottom: 64px;
 }
+
+button {
+    cursor: pointer;
+}
+
+a,
+a:visited {
+    color: var(--text-color);
+}
+
+a.active {
+    font-weight: bold;
+}
+
+img,
+picture,
+svg,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+pre,
+code {
+    /* font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+        "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+        "Fira Mono", "Droid Sans Mono", "Courier New", monospace; */
+    font-family: "IBM Plex Mono";
+}
+
+/* Styles -------------------------------------- */
 
 .content-grid {
     --padding-inline: 16px;
@@ -215,8 +226,7 @@ nav {
     margin-right: -11px;
 }
 
-#menu-button,
-#theme-button {
+.header-button {
     padding: 0;
     flex-shrink: 0;
     border: 0;
@@ -224,13 +234,11 @@ nav {
     transition: transform 0.3s ease-out;
 }
 
-#menu-button:hover,
-#theme-button:hover {
+.header-button:hover {
     transform: scale(1.2);
 }
 
-#menu-button > svg,
-#theme-button > svg {
+.header-button > svg {
     width: 25px;
     margin: 8px;
     fill: var(--text-color);
@@ -245,12 +253,10 @@ nav {
     display: block;
 }
 
-#menu-items {
+.menu-items {
     display: flex;
     flex-direction: column;
-    grid-row: 1;
     height: fit-content;
-    padding-bottom: 64px;
 }
 
 .menu-item {
@@ -258,7 +264,7 @@ nav {
     width: 100%;
     display: grid;
     place-content: center;
-    font-size: xx-large;
+    font-size: 32px;
     font-weight: 700;
     text-decoration: none;
     transition: transform 0.2s ease-out;
@@ -274,15 +280,9 @@ nav {
 }
 
 .sub-menu-items {
-    margin-top: 50px;
+    margin-top: 32px;
     display: flex;
-    gap: 40px;
-}
-
-@media (max-width: 768px) {
-    .sub-menu-items {
-        gap: 24px;
-    }
+    gap: 32px;
 }
 
 .sub-menu-item {
@@ -295,21 +295,4 @@ nav {
 .sub-menu-item:hover {
     text-decoration: underline;
     transform: scale(1.05);
-}
-
-h1 {
-    font-size: 20px;
-}
-
-a,
-a:visited {
-    color: var(--text-color);
-}
-
-a.active {
-    font-weight: bold;
-}
-
-button {
-    margin-top: 2px;
 }
