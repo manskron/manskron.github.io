@@ -80,7 +80,11 @@ const darkIcon = `
 `;
 
 $a(header, [
-    $c("button", { innerHTML: menuIcon, id: "menu-button" }),
+    $c("button", {
+        innerHTML: menuIcon,
+        id: "menu-button",
+        "aria-label": "Open menu",
+    }),
     $c("a", {
         id: "logo-link",
         href: "/",
@@ -90,6 +94,7 @@ $a(header, [
     $c("button", {
         type: "button",
         id: "theme-button",
+        "aria-label": "Toggle theme",
     }),
 ]);
 
@@ -188,6 +193,10 @@ $a(menu, [
     btn.addEventListener("click", () => {
         menu.classList.toggle("menu-open");
         mainEl.classList.toggle("menu-open");
+        btn.setAttribute(
+            "aria-label",
+            menu.classList.contains("menu-open") ? "Close menu" : "Open menu"
+        );
         btn.innerHTML = menu.classList.contains("menu-open") ? xIcon : menuIcon;
     });
 })();
