@@ -86,27 +86,26 @@ class CellularAutomata extends HTMLElement {
     static tagName = "cellular-automata";
 
     static style = `
-:host {
-    width: 100%;
-}
+    :host {
+        width: 100%;
+    }
 
-#container {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
+    #container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
 
-#controls {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-}
+    #controls {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
 
-.controlGroup {
-    font-size: 14px;
-}
-
+    .controlGroup {
+        font-size: 14px;
+    }
     `;
 
     connectedCallback() {
