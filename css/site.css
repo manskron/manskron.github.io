@@ -243,6 +243,7 @@ nav {
 #menu {
     display: none;
     background-color: var(--bkg-color);
+    padding: 32px 0;
 }
 
 #menu.menu-open {
@@ -302,7 +303,7 @@ nav {
 }
 
 main {
-    padding: 0 8px 32px;
+    padding: 32px 8px;
     display: flex;
     justify-content: center;
 }
