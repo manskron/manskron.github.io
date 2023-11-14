@@ -2,16 +2,6 @@
 
 <html lang="en">
     <head>
-        <script defer>
-            fetch(
-                "https://raw.githubusercontent.com/manskron/modmacs/master/init.el"
-            )
-                .then((response) => response.text())
-                .then((text) => {
-                    let pre = document.getElementById("config");
-                    pre.innerHTML = text;
-                });
-        </script>
         <link
             rel="preload"
             href="/assets/fonts/IBMPlexMono-Regular-Latin1.woff2"
@@ -44,15 +34,25 @@
         <link rel="preload" href="/css/site.css" as="style" />
 
         <link rel="modulepreload" href="/js/site.js" />
+        <link rel="modulepreload" href="/js/components/emacs-config.js" />
 
         <link rel="icon" href="/assets/favicon.svg" />
-        <link rel="mask-icon" href="/assets/favicon-masked.svg" color="#f7f7f7">
+        <link
+            rel="mask-icon"
+            href="/assets/favicon-masked.svg"
+            color="#f7f7f7"
+        />
         <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
 
         <link rel="stylesheet" href="/css/site.css" />
 
         <script src="/js/site.js" defer type="module"></script>
+        <script
+            src="/js/components/emacs-config.js"
+            defer
+            type="module"
+        ></script>
 
         <meta name="theme-color" content="#f7f7f7" />
         <meta charset="UTF-8" />
@@ -65,7 +65,7 @@
         <header></header>
         <div id="menu"></div>
         <main>
-            <pre id="config" style="overflow: scroll"></pre>
+            <emacs-config></emacs-config>
         </main>
         <footer></footer>
     </body>
