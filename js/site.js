@@ -187,12 +187,12 @@ $a(menu, [
 
 (function setupMenuButton() {
     const btn = document.getElementById("menu-button");
-    const mainEl = document.querySelector("main");
+    const body = document.querySelector("body");
     const menu = document.getElementById("menu");
 
     btn.addEventListener("click", () => {
         menu.classList.toggle("menu-open");
-        mainEl.classList.toggle("menu-open");
+        body.classList.toggle("menu-open");
         btn.setAttribute(
             "aria-label",
             menu.classList.contains("menu-open") ? "Close menu" : "Open menu"

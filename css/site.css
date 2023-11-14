@@ -133,8 +133,8 @@ body {
     color: var(--text-color);
 }
 
-#content-grid {
-    --padding-inline: 8px;
+.content-grid {
+    --padding-inline: 16px;
     --content-max-width: 70ch;
     --breakout-max-width: 85ch;
 
@@ -155,16 +155,16 @@ body {
         minmax(var(--padding-inline), 1fr) [full-width-end];
 }
 
-#content-grid > :not(.breakout, .full-width),
+.content-grid > :not(.breakout, .full-width-bg),
 .full-width > :not(.breakout, .full-width) {
     grid-column: content;
 }
 
-#content-grid > .breakout {
+.content-grid > .breakout {
     grid-column: breakout;
 }
 
-#content-grid > .full-width {
+.content-grid > .full-width {
     grid-column: full-width;
 
     display: grid;
@@ -172,7 +172,7 @@ body {
 }
 
 /* Make sure only menu and header is visible when menu open */
-#content-grid > :not(header, #menu) .menu-open {
+body.menu-open > .content-grid > :not(header, #menu) {
     display: none;
 }
 
@@ -182,26 +182,11 @@ img.full-width {
     object-fit: cover;
 }
 
-#landing-logo {
-    width: 300px;
-    margin: 30px auto 44px auto;
-}
-
-@media (max-width: 768px) {
-    #landing-logo {
-        width: 200px;
-        margin: 30px auto 30px auto;
-    }
-}
-
-#landing-logo > .text {
-    fill: var(--text-color);
-}
-
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 32px;
     height: 80px;
     gap: 8px;
 }
@@ -221,8 +206,17 @@ nav {
     fill: var(--text-color);
 }
 
+#menu-button {
+    margin-left: -11px;
+}
+
+#theme-button {
+    margin-right: -11px;
+}
+
 #menu-button,
 #theme-button {
+    padding: 0;
     flex-shrink: 0;
     border: 0;
     background-color: var(--bkg-color);
@@ -237,13 +231,13 @@ nav {
 #menu-button > svg,
 #theme-button > svg {
     width: 25px;
+    margin: 8px;
     fill: var(--text-color);
 }
 
 #menu {
     display: none;
     background-color: var(--bkg-color);
-    padding: 32px 0;
 }
 
 #menu.menu-open {
@@ -302,24 +296,6 @@ nav {
     transform: scale(1.05);
 }
 
-main {
-    padding: 32px 8px;
-    display: flex;
-    justify-content: center;
-}
-
-main.menu-open {
-    display: none;
-}
-
-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 16px 16px;
-    gap: 8px;
-}
-
 h1 {
     font-size: 20px;
 }
@@ -335,13 +311,4 @@ a.active {
 
 button {
     margin-top: 2px;
-}
-
-#footer-links {
-    display: flex;
-    gap: 0.5rem;
-}
-
-#footer-copyline {
-    font-size: 12px;
 }
