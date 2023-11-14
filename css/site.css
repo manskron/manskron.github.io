@@ -132,6 +132,11 @@ body {
     color: var(--text-color);
 }
 
+#content {
+    max-width: 60em;
+    margin: auto;
+}
+
 #landing-logo {
     width: 300px;
     margin: 30px auto 44px auto;
