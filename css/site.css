@@ -145,7 +145,7 @@ code {
 
 /* Styles -------------------------------------- */
 
-.content-grid {
+.grid {
     --padding-inline: 16px;
     --content-max-width: 70ch;
     --breakout-max-width: 85ch;
@@ -167,24 +167,29 @@ code {
         minmax(var(--padding-inline), 1fr) [full-width-end];
 }
 
-.content-grid > :not(.breakout, .full-width),
-.full-width > :not(.breakout, .full-width) {
+.content {
     grid-column: content;
 }
 
-.content-grid > .breakout {
+.breakout {
     grid-column: breakout;
 }
 
-.content-grid > .full-width {
+.full-width {
     grid-column: full-width;
 
     display: grid;
     grid-template-columns: inherit;
 }
 
+.subgrid {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: full-width;
+}
+
 /* Make sure only menu and header is visible when menu open */
-body.menu-open > .content-grid > :not(header, #menu) {
+body.menu-open > .grid > :not(header, #menu) {
     display: none;
 }
 
