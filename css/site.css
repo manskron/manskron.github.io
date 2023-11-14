@@ -131,6 +131,7 @@ body.dark-theme {
 body {
     background: var(--bkg-color);
     color: var(--text-color);
+    padding-bottom: 64px;
 }
 
 .content-grid {
