@@ -7,7 +7,8 @@ class EmacsConfig extends HTMLElement {
     }
 
     pre {
-    overflow-x: scroll;
+        overflow-x: scroll;
+        font-family: "Roboto Mono", monospace;
     }
     `;
 

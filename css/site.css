@@ -1,36 +1,29 @@
 @font-face {
     font-family: "lexendregular";
-    src: url("/assets/fonts/lexend-variable.woff2") format("woff2-variations");
-    font-weight: 100 200 300 400 500 600 700 800 900;
+    src: url("/assets/fonts/Lexend-Variable.woff2") format("woff2-variations");
+    font-weight: 100 900;
     font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto Mono";
+    src: url("/assets/fonts/RobotoMono-Variable.woff2")
+        format("woff2-variations");
+    font-weight: 100 700;
+    font-style: normal;
+    font-display: swap;
 }
 
 :root {
-    --blue: #4a68d9;
-    --white: #ebedea;
-    --black: #222;
-    --dark-red: #d0344a;
-    --red: #ff6f7a;
-    --green: #008c5c;
-    --yellow: #ffc45f;
-    --dark-gray: #686677;
+    --white: #fdf0ed;
+    --black: #16161c;
 
     --ff-body: "lexendregular";
-    --ff-heading: "lexendregular";
+    --ff-mono: "Roboto Mono";
 }
 
 /* Theme setup ---------------------- */
-
-body {
-    /* font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-        sans-serif; */
-
-    font-family: var(--ff-body);
-
-    --text-color: var(--black);
-    --bkg-color: var(--white);
-}
 
 h1,
 h2,
@@ -41,20 +34,31 @@ h6 {
     font-family: var(--ff-heading);
 }
 
+body {
+    font-family: var(--ff-body);
+
+    --text-color: var(--black);
+    --bkg-color: var(--white);
+    --logo-color: #da103f;
+}
+
 body.dark-theme {
     --text-color: var(--white);
     --bkg-color: var(--black);
+    --logo-color: #e95678;
 }
 
 @media (prefers-color-scheme: dark) {
     body.light-theme {
         --text-color: var(--black);
         --bkg-color: var(--white);
+        --logo-color: #da103f;
     }
 
     body {
         --text-color: var(--white);
         --bkg-color: var(--black);
+        --logo-color: #e95678;
     }
 }
 
@@ -176,11 +180,10 @@ nav {
 }
 
 #logo-link {
-    font-family: var(--ff-heading);
-    font-weight: 100;
-    font-size: 1.5rem;
-    text-transform: uppercase;
+    font-weight: 200;
+    font-size: 1.4rem;
     text-decoration: none;
+    color: var(--logo-color);
 }
 
 #logo-link > svg {
@@ -241,6 +244,7 @@ nav {
     font-size: 32px;
     font-weight: 500;
     text-decoration: none;
+    text-transform: uppercase;
     transition: transform 0.2s ease-out;
 }
 
@@ -261,7 +265,7 @@ nav {
 
 .sub-menu-item {
     font-size: large;
-    font-weight: semibold;
+    font-weight: 300;
     text-decoration: none;
     transition: transform 0.2s ease-out;
 }
