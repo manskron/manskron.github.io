@@ -90,7 +90,7 @@ $a(header, [
         id: "logo-link",
         href: "/",
         "aria-label": "Go to startpage",
-        innerHTML: logo,
+        innerHTML: "mans.computer",
     }),
     $c("button", {
         type: "button",
