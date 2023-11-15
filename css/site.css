@@ -1,6 +1,6 @@
 @font-face {
     font-family: "lexendregular";
-    src: url("/assets/fonts/Lexend-Variable.woff2") format("woff2-variations");
+    src: url("/css/fonts/lexend.woff2") format("woff2-variations");
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
@@ -8,8 +8,7 @@
 
 @font-face {
     font-family: "Roboto Mono";
-    src: url("/assets/fonts/RobotoMono-Variable.woff2")
-        format("woff2-variations");
+    src: url("/css/fonts/robotomono.woff2") format("woff2-variations");
     font-weight: 100 700;
     font-style: normal;
     font-display: swap;
@@ -180,10 +179,11 @@ nav {
 }
 
 #logo-link {
-    font-weight: 200;
+    font-weight: 300;
     font-size: 1.4rem;
     text-decoration: none;
     color: var(--logo-color);
+    font-family: var(--ff-mono);
 }
 
 #logo-link > svg {
@@ -265,7 +265,7 @@ nav {
 
 .sub-menu-item {
     font-size: large;
-    font-weight: 300;
+    font-weight: 200;
     text-decoration: none;
     transition: transform 0.2s ease-out;
 }
