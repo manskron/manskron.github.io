@@ -22,7 +22,9 @@
     --ff-mono: "Roboto Mono";
 }
 
-/* Theme setup ---------------------- */
+html {
+    font-size: 16px;
+}
 
 h1,
 h2,
@@ -42,20 +44,20 @@ p {
     font-weight: 200;
 }
 
-body {
-    font-family: var(--ff-body);
-
-    --text-color: var(--black);
-    --bkg-color: var(--white);
-    --logo-color: #da103f;
-}
-
 section {
     padding: 3rem 0;
 }
 
 section > * {
     margin-bottom: 1rem;
+}
+
+body {
+    font-family: var(--ff-body);
+
+    --text-color: var(--black);
+    --bkg-color: var(--white);
+    --logo-color: #da103f;
 }
 
 body {
