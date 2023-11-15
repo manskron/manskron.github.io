@@ -186,12 +186,8 @@ nav {
     font-family: var(--ff-mono);
 }
 
-#logo-link > svg {
-    width: 150px;
-}
-
-#logo-link > svg > .text {
-    fill: var(--text-color);
+#logo-link:hover {
+    text-decoration: underline;
 }
 
 #menu-button {
@@ -267,10 +263,8 @@ nav {
     font-size: large;
     font-weight: 200;
     text-decoration: none;
-    transition: transform 0.2s ease-out;
 }
 
 .sub-menu-item:hover {
     text-decoration: underline;
-    transform: scale(1.05);
 }
