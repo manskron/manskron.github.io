@@ -33,7 +33,7 @@ export function $a(el, children) {
 }
 
 const header = document.querySelector("header");
-const menu = document.querySelector("#menu");
+const menu = document.querySelector("nav");
 
 const urls = {
     email: "mailto:safe.key1974@fastmail.com",
@@ -94,42 +94,42 @@ $a(header, [
 ]);
 
 $a(menu, [
-    $c("nav", { classList: ["menu-items"] }, [
-        $c("a", {
-            href: "/",
-            textContent: "Home",
-            classList: ["menu-item"],
-        }),
-        $c("a", {
-            href: "/pages/cells",
-            textContent: "Cells",
-            classList: ["menu-item"],
-        }),
-        $c("a", {
-            href: "/pages/emacsconf",
-            textContent: "Emacs config",
-            classList: ["menu-item"],
-        }),
+    $c("ul", undefined, [
+        $c("li", undefined, [
+            $c("a", {
+                href: "/",
+                textContent: "Home",
+            }),
+        ]),
+        $c("li", undefined, [
+            $c("a", {
+                href: "/pages/cells",
+                textContent: "Cells",
+            }),
+        ]),
+        $c("li", undefined, [
+            $c("a", {
+                href: "/pages/emacsconf",
+                textContent: "Emacs config",
+            }),
+        ]),
         $c(
             "div",
             {
-                classList: ["sub-menu-items"],
+                classList: ["sub-links"],
             },
             [
                 $c("a", {
                     href: urls.github,
                     textContent: "Github",
-                    classList: ["sub-menu-item"],
                 }),
                 $c("a", {
                     href: urls.linkedin,
                     textContent: "LinkedIn",
-                    classList: ["sub-menu-item"],
                 }),
                 $c("a", {
                     href: urls.email,
                     textContent: "Email",
-                    classList: ["sub-menu-item"],
                 }),
             ]
         ),
@@ -180,18 +180,18 @@ $a(menu, [
     }
 })();
 
-(function setupMenuButton() {
+(function setupNavButton() {
     const btn = document.getElementById("menu-button");
     const body = document.querySelector("body");
-    const menu = document.getElementById("menu");
+    const nav = document.querySelector("nav");
 
     btn.addEventListener("click", () => {
-        menu.classList.toggle("menu-open");
-        body.classList.toggle("menu-open");
+        nav.classList.toggle("nav-open");
+        body.classList.toggle("nav-open");
         btn.setAttribute(
             "aria-label",
-            menu.classList.contains("menu-open") ? "Close menu" : "Open menu"
+            nav.classList.contains("nav-open") ? "Close menu" : "Open menu"
         );
-        btn.innerHTML = menu.classList.contains("menu-open") ? xIcon : menuIcon;
+        btn.innerHTML = nav.classList.contains("nav-open") ? xIcon : menuIcon;
     });
 })();
