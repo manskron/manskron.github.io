@@ -20,6 +20,7 @@
 
     --ff-body: "lexendregular";
     --ff-mono: "Roboto Mono";
+    --ff-heading: "Roboto Mono";
 }
 
 body {
@@ -80,7 +81,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--ff-mono);
+    font-family: var(--ff-heading);
 }
 
 h1,
@@ -96,7 +97,7 @@ h1 {
 h1 + p {
     font-size: 1.275rem;
     margin-block: 1rem 3.25rem;
-    font-weight: 300;
+    /* font-weight: 300; */
 }
 
 h2 {
