@@ -104,17 +104,8 @@ h1 {
     /* font-weight: 600; */
 }
 
-h1 + p {
-    margin-top: 1rem 3.25rem;
-    /* font-weight: 300; */
-}
-
 h2 {
     font-size: var(--fs-3);
-}
-
-h2 + p {
-    margin-top: 0.75rem 2rem;
 }
 
 button {
@@ -136,7 +127,7 @@ pre {
 }
 
 .flow > * + * {
-    margin-top: 1em;
+    margin-top: var(--flow-space, 1em);
 }
 
 .grid {
@@ -244,6 +235,7 @@ nav a:hover {
     text-decoration: none;
     color: var(--logo-color);
     font-family: var(--ff-mono);
+    margin-top: -8px;
 }
 
 #logo-link:hover {
