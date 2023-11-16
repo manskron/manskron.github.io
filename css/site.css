@@ -21,6 +21,16 @@
     --ff-body: "lexendregular";
     --ff-mono: "Roboto Mono";
     --ff-heading: "Roboto Mono";
+
+    --fs--2: clamp(0.6944rem, 0.6576rem + 0.1837vw, 0.8rem);
+    --fs--1: clamp(0.8331rem, 0.7751rem + 0.2902vw, 1rem);
+    --fs-0: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem);
+    --fs-1: clamp(1.2rem, 1.0739rem + 0.6304vw, 1.5625rem);
+    --fs-2: clamp(1.44rem, 1.2615rem + 0.8924vw, 1.9531rem);
+    --fs-3: clamp(1.7281rem, 1.4801rem + 1.2402vw, 2.4413rem);
+    --fs-4: clamp(2.0738rem, 1.7335rem + 1.7011vw, 3.0519rem);
+    --fs-5: clamp(2.4881rem, 2.0266rem + 2.3076vw, 3.815rem);
+    --fs-6: clamp(2.9863rem, 2.3665rem + 3.0989vw, 4.7681rem);
 }
 
 body {
@@ -63,12 +73,13 @@ body.dark-theme {
 
 html {
     color-scheme: dark light;
-    font-size: 16px;
 }
 
 body {
     background: var(--bkg-color);
     color: var(--text-color);
+    font-size: var(--fs-0);
+    font-weight: 200;
 }
 
 h1,
@@ -78,6 +89,7 @@ h4,
 h5,
 h6 {
     font-family: var(--ff-heading);
+    text-wrap: balance;
 }
 
 h1,
@@ -86,27 +98,21 @@ h2 {
 }
 
 h1 {
-    font-size: 3rem;
-    font-weight: 600;
+    font-size: var(--fs-5);
+    /* font-weight: 600; */
 }
 
 h1 + p {
-    font-size: 1.275rem;
-    margin-block: 1rem 3.25rem;
+    margin-top: 1rem 3.25rem;
     /* font-weight: 300; */
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: var(--fs-3);
 }
 
 h2 + p {
-    font-size: 1rem;
-    margin-block: 0.75rem 2rem;
-}
-
-p {
-    font-weight: 200;
+    margin-top: 0.75rem 2rem;
 }
 
 button {
@@ -122,10 +128,14 @@ a.active {
     font-weight: bold;
 }
 
+.flow > * + * {
+    margin-top: 1em;
+}
+
 .grid {
     --padding-inline: 16px;
-    --content-max-width: 70ch;
-    --breakout-max-width: 90ch;
+    --content-max-width: 55ch;
+    --breakout-max-width: 70ch;
 
     --breakout-size: calc(
         (var(--breakout-max-width) - var(--content-max-width)) / 2
@@ -159,7 +169,7 @@ a.active {
     grid-template-columns: subgrid;
 }
 
-/* Make sure only menu and header is visible when menu open */
+/* Hide everything but the menu and header when menu open */
 body.menu-open > .grid > :not(header, #menu) {
     display: none;
 }
@@ -187,7 +197,7 @@ nav {
 
 #logo-link {
     font-weight: 300;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     text-decoration: none;
     color: var(--logo-color);
     font-family: var(--ff-mono);
