@@ -1,17 +1,6 @@
 class EmacsConfig extends HTMLElement {
     static tagName = "emacs-config";
 
-    static style = `
-    :host {
-        width: 100%;
-    }
-
-    pre {
-        overflow-x: scroll;
-        font-family: "Roboto Mono", monospace;
-    }
-    `;
-
     static config = fetch(
         "https://raw.githubusercontent.com/manskron/modmacs/master/init.el"
     )
@@ -23,18 +12,9 @@ class EmacsConfig extends HTMLElement {
             return;
         }
 
-        let shadowroot = this.attachShadow({ mode: "open" });
-
-        let sheet = new CSSStyleSheet();
-        sheet.replaceSync(EmacsConfig.style);
-        shadowroot.adoptedStyleSheets = [sheet];
-
         const template = document.createElement("template");
-        const pre = document.createElement("pre");
+        const pre = this.querySelector("pre");
         pre.innerHTML = await EmacsConfig.config;
-        template.content.appendChild(pre);
-
-        shadowroot.appendChild(template.content.cloneNode(true));
     }
 }
 
