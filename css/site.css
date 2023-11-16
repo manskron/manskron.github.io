@@ -35,6 +35,7 @@
 
 body {
     font-family: var(--ff-body);
+    line-height: 1.5;
 
     --text-color: var(--black);
     --bkg-color: var(--white);
@@ -93,7 +94,8 @@ h6 {
 }
 
 h1,
-h2 {
+h2,
+h3 {
     line-height: 1.1;
 }
 
