@@ -22,36 +22,6 @@
     --ff-mono: "Roboto Mono";
 }
 
-html {
-    font-size: 16px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--ff-mono);
-}
-
-h1 {
-    font-size: 3rem;
-    font-weight: 600;
-}
-
-p {
-    font-weight: 200;
-}
-
-section {
-    padding: 3rem 0;
-}
-
-section > * {
-    margin-bottom: 1rem;
-}
-
 body {
     font-family: var(--ff-body);
 
@@ -94,25 +64,52 @@ body.dark-theme {
 
 /* Base styles */
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-* {
-    margin: 0;
-    font: inherit;
-}
-
 html {
     color-scheme: dark light;
+    font-size: 16px;
 }
 
 body {
     background: var(--bkg-color);
     color: var(--text-color);
-    padding-bottom: 64px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--ff-mono);
+}
+
+h1,
+h2 {
+    line-height: 1.1;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+h1 + p {
+    font-size: 1.275rem;
+    margin-block: 1rem 3.25rem;
+    font-weight: 300;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h2 + p {
+    font-size: 1rem;
+    margin-block: 0.75rem 2rem;
+}
+
+p {
+    font-weight: 200;
 }
 
 button {
@@ -127,23 +124,6 @@ a:visited {
 a.active {
     font-weight: bold;
 }
-
-img,
-picture,
-svg,
-video {
-    display: block;
-    max-width: 100%;
-}
-
-pre,
-code {
-    font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-        "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-        "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-}
-
-/* Styles -------------------------------------- */
 
 .grid {
     --padding-inline: 16px;
@@ -301,4 +281,5 @@ nav {
 
 .bg-secondary {
     background-color: var(--bg-secondary);
+    padding: 2em;
 }
